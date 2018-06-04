@@ -53,7 +53,7 @@ public class menuLogin extends javax.swing.JFrame {
         getContentPane().add(botonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 363, 70, 30));
 
         imagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_male2-128.png"))); // NOI18N
-        getContentPane().add(imagenLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        getContentPane().add(imagenLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +87,7 @@ public class menuLogin extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
 
         ImagenFondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"))); // NOI18N
-        getContentPane().add(ImagenFondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 420));
+        getContentPane().add(ImagenFondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
