@@ -9,6 +9,29 @@ package vehiculo;
  *
  * @author Andrew
  */
-public class tren {
-    
+public class tren extends bus {
+
+    public tren() {
+    }
+
+    public tren(String id, String rutaAsignada) {
+        super(id, rutaAsignada);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getRutaAsignada() {
+        return rutaAsignada;
+    }
+
+    public void setRutaAsignada(String rutaAsignada) {
+        this.rutaAsignada = rutaAsignada;
+    }
+
 }
