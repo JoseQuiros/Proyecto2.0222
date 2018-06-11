@@ -22,14 +22,14 @@ public class busGUI extends javax.swing.JFrame {
     /**
      * Creates new form busGUI
      */
-    int asientosOcupados[][] = new int[3][5];
+    String asientosOcupados[] = new String[11];
     File file = new File("asientosBus.txt");
     String ruta = "asientosBus.txt";
-    int contadorGlobal=0;
-    boolean busLleno=false;
+    int contador=0;
     public busGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        System.out.print("vector que lee:  ");
 
         try {
             if (!file.exists()) {
@@ -43,44 +43,91 @@ public class busGUI extends javax.swing.JFrame {
                 if (cadena.indexOf(",") != -1) {
                     if (cadena.split(",")[0].equalsIgnoreCase("1")) {
                         asiento1.setEnabled(false);
-                        System.out.println("uno");
+                        asientosOcupados[0] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[0]="0";
                     }
+                    
                     if (cadena.split(",")[1].equalsIgnoreCase("1")) {
                         asiento2.setEnabled(false);
+                        asientosOcupados[1] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[1]="0";
                     }
+                    
                     if (cadena.split(",")[2].equalsIgnoreCase("1")) {
                         asiento3.setEnabled(false);
+                        asientosOcupados[2] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[2]="0";
                     }
                     if (cadena.split(",")[3].equalsIgnoreCase("1")) {
                         asiento4.setEnabled(false);
+                        asientosOcupados[3] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[3]="0";
                     }
                     if (cadena.split(",")[4].equalsIgnoreCase("1")) {
                         asiento5.setEnabled(false);
+                        asientosOcupados[4] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[4]="0";
                     }
                     if (cadena.split(",")[5].equalsIgnoreCase("1")) {
                         asiento6.setEnabled(false);
+                        asientosOcupados[5] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[5]="0";
                     }
                     if (cadena.split(",")[6].equalsIgnoreCase("1")) {
                         asiento7.setEnabled(false);
+                        asientosOcupados[6] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[6]="0";
                     }
                     if (cadena.split(",")[7].equalsIgnoreCase("1")) {
                         asiento8.setEnabled(false);
+                        asientosOcupados[7] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[7]="0";
                     }
                     if (cadena.split(",")[8].equalsIgnoreCase("1")) {
                         asiento9.setEnabled(false);
+                        asientosOcupados[8] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[8]="0";
                     }
                     if (cadena.split(",")[9].equalsIgnoreCase("1")) {
                         asiento10.setEnabled(false);
+                        asientosOcupados[9] = "1";
+                        contador++;
+                    }else{
+                        asientosOcupados[9]="0";
                     }
-                    if (cadena.split(",")[10].equalsIgnoreCase("10")) {
-                        busLleno=true;
-                        
-                    }
+//                    if (cadena.split(",")[10].equalsIgnoreCase("10")) {
+//                        System.out.println("bus lleno");
+//                        this.dispose();
+//                    }else{
+//                        asientosOcupados[10]=String.valueOf(contador);
+//                    }
                     
+                    if(contador==10){
+                        JOptionPane.showMessageDialog(null,"Bus esta lleno, se cerra");
+                        System.exit(0);
+                    }
+
                 }
-                System.out.println(cadena);
-                System.out.println("Variable global de contador: "+contadorGlobal);
-                
+                System.out.println("Esta es la cadena que lee:  " + cadena);
+
             }
             buffReader.close();
 
@@ -88,6 +135,7 @@ public class busGUI extends javax.swing.JFrame {
             e.printStackTrace();
             System.out.println("Error");
         }
+        
     }
 
     /**
@@ -162,67 +210,61 @@ public class busGUI extends javax.swing.JFrame {
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
-        if (busLleno == true) {
-            JOptionPane.showMessageDialog(null, "el bus esta lleno");
-            contadorGlobal = 10;
-        }
+
         if (asiento1.isSelected()) {
-            asientosOcupados[0][0] = 1;
+            asientosOcupados[0] = String.valueOf("1");
             asiento1.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento2.isSelected()) {
-            asientosOcupados[0][1] = 1;
+            asientosOcupados[1] = String.valueOf("1");
             asiento2.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento3.isSelected()) {
-            asientosOcupados[0][2] = 1;
+            asientosOcupados[2] = String.valueOf("1");
             asiento3.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento4.isSelected()) {
-            asientosOcupados[0][3] = 1;
+            asientosOcupados[3] = String.valueOf("1");
             asiento4.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento5.isSelected()) {
-            asientosOcupados[0][4] = 1;
+            asientosOcupados[4] = String.valueOf("1");
             asiento5.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento6.isSelected()) {
-            asientosOcupados[1][0] = 1;
+            asientosOcupados[5] = String.valueOf("1");
             asiento6.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento7.isSelected()) {
-            asientosOcupados[1][1] = 1;
+            asientosOcupados[6] = String.valueOf("1");
             asiento7.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento8.isSelected()) {
-            asientosOcupados[1][2] = 1;
+            asientosOcupados[7] = String.valueOf("1");
             asiento8.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento9.isSelected()) {
-            asientosOcupados[1][3] = 1;
+            asientosOcupados[8] = String.valueOf("1");
             asiento9.setEnabled(false);
-            contadorGlobal++;
+
         }
         if (asiento10.isSelected()) {
-            asientosOcupados[1][4] = 1;
+            asientosOcupados[9] = String.valueOf("1");
             asiento10.setEnabled(false);
-            contadorGlobal++;
+
         }
+        System.out.print("Sale del los if antes de escribir:    ");
         for (int x = 0; x < asientosOcupados.length; x++) {
-            for (int y = 0; y < asientosOcupados[x].length; y++) {
-                System.out.print(asientosOcupados[x][y]);
-            }
-            System.out.println("");
+            System.out.print(asientosOcupados[x] + ",");
         }
-        System.out.println("");
 
         FileWriter flWriter = null;
         try {
@@ -231,20 +273,26 @@ public class busGUI extends javax.swing.JFrame {
                 System.out.println("archivo no existe");
                 file.createNewFile();
             }
-            flWriter = new FileWriter(file, true);
+            flWriter = new FileWriter(file);
 
             BufferedWriter brWriter = new BufferedWriter(flWriter);
+            System.out.print("  Antes de escribir bwwriter:    ");
+            for (int x = 0; x < asientosOcupados.length; x++) {
+
+                System.out.print(asientosOcupados[x] + ",");
+
+            }
 
             for (int x = 0; x < asientosOcupados.length; x++) {
-                for (int y = 0; y < asientosOcupados[x].length; y++) {
-                    brWriter.write(String.valueOf(asientosOcupados[x][y]) + ",");
-                }
-            }
-            brWriter.write(String.valueOf(contadorGlobal));
 
+                brWriter.write(String.valueOf(asientosOcupados[x]) + ",");
+
+            }
+            
             brWriter.newLine();
             System.out.println("Cerramos conexion");
             brWriter.close();
+            
         } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();
