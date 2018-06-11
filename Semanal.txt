@@ -1,0 +1,2 @@
+15, Turrialba-Cartago, 50
+16, Turrialba-San Jose, 60

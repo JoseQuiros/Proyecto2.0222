@@ -14,8 +14,7 @@ import USUARIOS.colaborador;
  */
 public interface operaciones {
     public void listadoEmpleados(rutasTxt rutaArchivo);
-    public void reportesDeVentas(int tipoReporte, rutasTxt rutaArchivo);
-    public int agregarEmpleado(colaborador nuevoColaborador, rutasTxt rutaArchivo);
+    public int agregarEmpleado(colaborador nuevoColaborador);
     public void eliminarEmpleado();
-    public boolean buscarEmpleado(String nombre, rutasTxt rutaArchivo);
+    public boolean buscarEmpleado(String nombre);
 }
