@@ -12,6 +12,7 @@ import java.io.IOException;
 import USUARIOS.colaborador;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,15 +74,9 @@ public class operacionesGerente implements operaciones {
             e.printStackTrace();
         }
     }
-
     @Override
-    public void reportesDeVentas(int tipoReporte, rutasTxt rutaArchivo) {
-
-    }
-
-    @Override
-    public int agregarEmpleado(colaborador nuevoColaborador, rutasTxt rutaArchivo) {
-        String ruta = String.valueOf(rutaArchivo);
+    public int agregarEmpleado(colaborador nuevoColaborador) {
+        String ruta ="Trabajadores.txt"; 
         File file = new File(ruta);
         int insertado = 0;
 
@@ -97,7 +92,7 @@ public class operacionesGerente implements operaciones {
 
             BufferedWriter brWriter = new BufferedWriter(flWriter);
 
-            if (!buscarEmpleado(nuevoColaborador.getNombre(), rutaArchivo)) {
+            if (!buscarEmpleado(nuevoColaborador.getNombre())) {
                 brWriter.write(
                         nuevoColaborador.getNombre() + ","
                         + nuevoColaborador.getEdad() + ","
@@ -127,12 +122,12 @@ public class operacionesGerente implements operaciones {
 
     @Override
     public void eliminarEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
-    public boolean buscarEmpleado(String nombre, rutasTxt rutaArchivo) {
-        String ruta = String.valueOf(rutaArchivo);
+    public boolean buscarEmpleado(String nombre) {
+        String ruta ="Trabajadores.txt";
         File file = new File(ruta);
         boolean encontrado = false;
 
