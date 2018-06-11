@@ -25,7 +25,8 @@ public class busGUI extends javax.swing.JFrame {
     String asientosOcupados[] = new String[11];
     File file = new File("asientosBus.txt");
     String ruta = "asientosBus.txt";
-    int contador=0;
+    int contador = 0;
+
     public busGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -45,83 +46,77 @@ public class busGUI extends javax.swing.JFrame {
                         asiento1.setEnabled(false);
                         asientosOcupados[0] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[0]="0";
+                    } else {
+                        asientosOcupados[0] = "0";
                     }
-                    
+
                     if (cadena.split(",")[1].equalsIgnoreCase("1")) {
                         asiento2.setEnabled(false);
                         asientosOcupados[1] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[1]="0";
+                    } else {
+                        asientosOcupados[1] = "0";
                     }
-                    
+
                     if (cadena.split(",")[2].equalsIgnoreCase("1")) {
                         asiento3.setEnabled(false);
                         asientosOcupados[2] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[2]="0";
+                    } else {
+                        asientosOcupados[2] = "0";
                     }
                     if (cadena.split(",")[3].equalsIgnoreCase("1")) {
                         asiento4.setEnabled(false);
                         asientosOcupados[3] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[3]="0";
+                    } else {
+                        asientosOcupados[3] = "0";
                     }
                     if (cadena.split(",")[4].equalsIgnoreCase("1")) {
                         asiento5.setEnabled(false);
                         asientosOcupados[4] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[4]="0";
+                    } else {
+                        asientosOcupados[4] = "0";
                     }
                     if (cadena.split(",")[5].equalsIgnoreCase("1")) {
                         asiento6.setEnabled(false);
                         asientosOcupados[5] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[5]="0";
+                    } else {
+                        asientosOcupados[5] = "0";
                     }
                     if (cadena.split(",")[6].equalsIgnoreCase("1")) {
                         asiento7.setEnabled(false);
                         asientosOcupados[6] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[6]="0";
+                    } else {
+                        asientosOcupados[6] = "0";
                     }
                     if (cadena.split(",")[7].equalsIgnoreCase("1")) {
                         asiento8.setEnabled(false);
                         asientosOcupados[7] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[7]="0";
+                    } else {
+                        asientosOcupados[7] = "0";
                     }
                     if (cadena.split(",")[8].equalsIgnoreCase("1")) {
                         asiento9.setEnabled(false);
                         asientosOcupados[8] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[8]="0";
+                    } else {
+                        asientosOcupados[8] = "0";
                     }
                     if (cadena.split(",")[9].equalsIgnoreCase("1")) {
                         asiento10.setEnabled(false);
                         asientosOcupados[9] = "1";
                         contador++;
-                    }else{
-                        asientosOcupados[9]="0";
+                    } else {
+                        asientosOcupados[9] = "0";
                     }
-//                    if (cadena.split(",")[10].equalsIgnoreCase("10")) {
-//                        System.out.println("bus lleno");
-//                        this.dispose();
-//                    }else{
-//                        asientosOcupados[10]=String.valueOf(contador);
-//                    }
-                    
-                    if(contador==10){
-                        JOptionPane.showMessageDialog(null,"Bus esta lleno, se cerra");
+
+                    if (contador == 10) {
+                        JOptionPane.showMessageDialog(null, "Bus esta lleno, se cerra");
                         System.exit(0);
                     }
 
@@ -135,7 +130,7 @@ public class busGUI extends javax.swing.JFrame {
             e.printStackTrace();
             System.out.println("Error");
         }
-        
+
     }
 
     /**
@@ -288,11 +283,11 @@ public class busGUI extends javax.swing.JFrame {
                 brWriter.write(String.valueOf(asientosOcupados[x]) + ",");
 
             }
-            
+
             brWriter.newLine();
             System.out.println("Cerramos conexion");
             brWriter.close();
-            
+
         } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();
