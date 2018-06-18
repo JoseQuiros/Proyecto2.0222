@@ -72,7 +72,6 @@ public class menuLogin extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, -1));
 
-        jPasswordField1.setText("password");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
