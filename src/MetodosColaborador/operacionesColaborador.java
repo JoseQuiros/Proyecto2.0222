@@ -115,7 +115,7 @@ public class operacionesColaborador implements operacionColaborador {
                 if (cadena.equalsIgnoreCase(rutaIngresada)) {
                     encontrado = true;
                 }
-                //System.out.println(cadena);
+                System.out.println(cadena);
             }
             buffReader.close();
         } catch (IOException e) {
