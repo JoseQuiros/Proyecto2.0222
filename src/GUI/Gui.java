@@ -61,7 +61,7 @@ public class Gui extends javax.swing.JFrame {
         while ((cadena = bf.readLine()) != null) {
             lNumeroLineas++;
         }
-
+         bf.close();
         Object[] data = new Object[lNumeroLineas];
 
         cadena = "";
@@ -93,6 +93,7 @@ public class Gui extends javax.swing.JFrame {
             cantidadFilas++;
         }
         buffReader.close();
+        fileR.close();
 
     }
 
