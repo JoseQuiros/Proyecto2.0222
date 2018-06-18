@@ -160,34 +160,34 @@ public class busGUI extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup1.add(asiento1);
-        getContentPane().add(asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        getContentPane().add(asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         buttonGroup1.add(asiento2);
-        getContentPane().add(asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        getContentPane().add(asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
         buttonGroup1.add(asiento3);
-        getContentPane().add(asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         buttonGroup1.add(asiento4);
-        getContentPane().add(asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        getContentPane().add(asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         buttonGroup1.add(asiento5);
-        getContentPane().add(asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        getContentPane().add(asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         buttonGroup1.add(asiento6);
-        getContentPane().add(asiento6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
+        getContentPane().add(asiento6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         buttonGroup1.add(asiento7);
-        getContentPane().add(asiento7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        getContentPane().add(asiento7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         buttonGroup1.add(asiento8);
-        getContentPane().add(asiento8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        getContentPane().add(asiento8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         buttonGroup1.add(asiento9);
-        getContentPane().add(asiento9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        getContentPane().add(asiento9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         buttonGroup1.add(asiento10);
-        getContentPane().add(asiento10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
+        getContentPane().add(asiento10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         imagenbus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/asientos.jpg"))); // NOI18N
         getContentPane().add(imagenbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 36, -1, -1));

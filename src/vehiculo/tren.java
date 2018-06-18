@@ -14,8 +14,8 @@ public class tren extends bus {
     public tren() {
     }
 
-    public tren(String id, String rutaAsignada) {
-        super(id, rutaAsignada);
+    public tren(String id, String rutaAsignada, int[] asientosOcupados) {
+        super(id, rutaAsignada, asientosOcupados);
     }
 
     public String getId() {
@@ -33,5 +33,15 @@ public class tren extends bus {
     public void setRutaAsignada(String rutaAsignada) {
         this.rutaAsignada = rutaAsignada;
     }
+
+    public int[] getAsientosOcupados() {
+        return asientosOcupados;
+    }
+
+    public void setAsientosOcupados(int[] asientosOcupados) {
+        this.asientosOcupados = asientosOcupados;
+    }
+
+
 
 }

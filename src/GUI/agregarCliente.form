@@ -23,20 +23,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="140" max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="138" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField1" pref="184" max="32767" attributes="0"/>
-                  <Component id="jLabel2_contraseña" min="-2" pref="94" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="jTextField1_nombreUsuario" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField1_contraseña" pref="184" max="32767" attributes="0"/>
+                              <Component id="jLabel2_contraseña" min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="jTextField1_nombreUsuario" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jButton1_AgregarCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="158" max="32767" attributes="0"/>
+                      <Component id="jButton1_salir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,8 +60,13 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jLabel2_contraseña" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <Component id="jTextField1_contraseña" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton1_AgregarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1_salir" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,12 +84,28 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="jTextField1_contrase&#xf1;a">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ingresar nuevo cliente"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1_AgregarCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_AgregarClienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1_salir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sallir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_salirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
