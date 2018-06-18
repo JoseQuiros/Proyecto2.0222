@@ -5,6 +5,8 @@
  */
 
 package GUI;
+import USUARIOS.validacionDatos;
+import USUARIOS.validacionDatosUsuario;
 
 /**
  *
@@ -31,9 +33,9 @@ public class menuLogin extends javax.swing.JFrame {
         imagenLogin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        usuarioTextField = new javax.swing.JTextField();
+        contraseñaTextField = new javax.swing.JPasswordField();
+        iniciarSesion = new javax.swing.JButton();
         ImagenFondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,30 +67,30 @@ public class menuLogin extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        usuarioTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                usuarioTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, -1));
+        getContentPane().add(usuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, -1));
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        contraseñaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                contraseñaTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 130, -1));
+        getContentPane().add(contraseñaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 130, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Iniciar Sesión");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        iniciarSesion.setBackground(new java.awt.Color(0, 0, 0));
+        iniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        iniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        iniciarSesion.setText("Iniciar Sesión");
+        iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                iniciarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
+        getContentPane().add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 30));
 
         ImagenFondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"))); // NOI18N
         getContentPane().add(ImagenFondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 420));
@@ -101,17 +103,45 @@ public class menuLogin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonSalirActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void usuarioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_usuarioTextFieldActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void contraseñaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_contraseñaTextFieldActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        validacionDatos validacion=new validacionDatos();
+        String nombreUsuario=usuarioTextField.getText();
+        String contraseña=contraseñaTextField.getText();
+        
+        if(validacion.validarUsuario(nombreUsuario,"colaborador.txt")==true){
+            System.out.println("usuario existe");
+            if (validacion.validarContraseña(contraseña, "colaborador.txt")==true) {
+                System.out.println("contraseña correcta");
+            }else{
+                System.out.println("EL usuario existe pero la contraseña es incorrecta");
+            }
+        }else{
+            System.out.println("Usuario no existe en colaborador.txt");
+            
+        }
+        validacionDatosUsuario validacionUsuario=new validacionDatosUsuario();
+        if(validacionUsuario.validarUsuario(nombreUsuario,"Clientes.txt")==true){
+            System.out.println("usuario existe");
+            if (validacionUsuario.validarContraseña(contraseña, "Clientes.txt")==true) {
+                System.out.println("contraseña correcta");
+            }else{
+                System.out.println("EL usuario existe pero la contraseña es incorrecta");
+            }
+        }else{
+            System.out.println("Usuario no existe en Clientes.txt");
+            
+        }
+        
+    }//GEN-LAST:event_iniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,12 +151,12 @@ public class menuLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImagenFondoLogin;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JPasswordField contraseñaTextField;
     private javax.swing.JLabel imagenLogin;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton iniciarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField usuarioTextField;
     // End of variables declaration//GEN-END:variables
 
 }
