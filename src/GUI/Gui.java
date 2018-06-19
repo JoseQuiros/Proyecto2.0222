@@ -46,7 +46,9 @@ public class Gui extends javax.swing.JFrame {
 
         modelo.addColumn("Telefono");
 
+
         modelo.addColumn("edad");
+
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -86,7 +88,7 @@ public class Gui extends javax.swing.JFrame {
 
                 object[4] = cadena.split(",")[4];
 
-//                object[5] = cadena.split(",")[5];
+
                 modelo.addRow(object);
             }
             //System.out.println(cadena);
@@ -113,8 +115,6 @@ public class Gui extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextFieldContraseña = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextFieldEdad = new javax.swing.JTextField();
         jButtonGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -180,17 +180,6 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldContraseña);
-
-        jLabel11.setText("edad");
-        jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel11);
-
-        jTextFieldEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEdadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFieldEdad);
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +261,10 @@ public class Gui extends javax.swing.JFrame {
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
+
+
 //        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
+
 
         operacionesGerente op = new operacionesGerente();
         op.eliminarEmpleado(lineaBorrar);
@@ -301,7 +293,7 @@ public class Gui extends javax.swing.JFrame {
 
         object[4] = jTextFieldTelefono.getText();
 
-//        object[5] = jTextFieldEdad.getText();
+
         modelo.addRow(object);
         String ruta = "colaborador.txt";
         File file = new File(ruta);
@@ -346,10 +338,6 @@ public class Gui extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-    private void jTextFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEdadActionPerformed
-
     private void jTextFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldContraseñaActionPerformed
@@ -367,7 +355,7 @@ public class Gui extends javax.swing.JFrame {
 
         jTextFieldTelefono.setText("");
         jTextFieldContraseña.setText(" ");
-        jTextFieldEdad.setText(" ");
+     
     }
 
     //quitar main
@@ -408,7 +396,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JComboBox jComboBoxSexo;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
@@ -417,7 +404,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldContraseña;
-    private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldPUsuario;
     private javax.swing.JTextField jTextFieldSNombre;
     private javax.swing.JTextField jTextFieldTelefono;

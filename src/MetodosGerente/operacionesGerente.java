@@ -61,18 +61,17 @@ public class operacionesGerente implements operaciones {
             }
             pw.close();
             br.close();
-//            inFile.delete();
-//
-//            if (!inFile.delete()) {
-//                JOptionPane.showMessageDialog(null, "No se puedo borrar el archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//          
+
+     
 
 //            Le asigna al nuevo archivo el nombre que tenía el anterior
+
+//        
+
 //            if (!tempFile.renameTo(inFile)) {
 //                JOptionPane.showMessageDialog(null, "No fue posible cambiarle el nombre al nuevo archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
 //            }
+
             /*Obtengo el nombre del fichero inicial*/
             String SnomAntiguo = inFile.getName();
             System.out.println("nombre del fichero inicial" + SnomAntiguo);
@@ -81,7 +80,10 @@ public class operacionesGerente implements operaciones {
             /*renombro el nuevo fichero con el nombre del fichero inicial*/
             tempFile.renameTo(inFile);
 
+
+      
             /*Cierro el flujo de lectura*/
+
             br.close();
 
         } catch (FileNotFoundException ex) {
