@@ -23,4 +23,9 @@ public interface operacionColaborador {
     public int agregarRuta(String nuevaRuta);
 
     public boolean buscarRuta(String nombre);
+
+    public int agregarUnidad(Object object, String tipo);
+
+    public boolean buscarUnidad(String id);
+
 }
