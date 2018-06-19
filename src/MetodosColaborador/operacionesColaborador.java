@@ -5,7 +5,6 @@
  */
 package MetodosColaborador;
 
-import static MetodosGerente.operacionesGerente.BorrarFichero;
 import USUARIOS.cliente;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -126,7 +125,7 @@ public class operacionesColaborador implements operacionColaborador {
         
      
     }
-      public static void BorrarFichero(File Ffichero) {
+      public void BorrarFichero(File Ffichero) {
         try {
             /*Si existe el fichero*/
             if (Ffichero.exists()) {

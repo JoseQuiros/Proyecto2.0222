@@ -246,27 +246,12 @@ public class colaboradorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_agregarRutaActionPerformed
 
     private void jButton2_eliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_eliminarClienteActionPerformed
-
-
-
-
-        // TODO add your handling code here:
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Gui_1().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            
-            
-        });
-        
-        
-        
-        
+        try {
+            Gui_1 eliminarClientes = new Gui_1();
+            eliminarClientes.setVisible(true);
+            eliminarClientes.setLocationRelativeTo(null);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton2_eliminarClienteActionPerformed
 
     /**
