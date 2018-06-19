@@ -41,10 +41,8 @@ public class gerenteGUI extends javax.swing.JFrame {
         jButton3_mensuales = new javax.swing.JButton();
         jLabel1_gerencia = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1_listadoEmpleados = new javax.swing.JButton();
-        jButton1_agregarEmpleado = new javax.swing.JButton();
-        jButton2_eliminarEmpleado = new javax.swing.JButton();
         jLabel1_opcionesEmpleados = new javax.swing.JLabel();
+        jButton2_OpcionesEmpleados = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1_reportesVentas = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -63,36 +61,25 @@ public class gerenteGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(180, 300));
 
-        jButton1_listadoEmpleados.setText("Lista Empleados");
-        jButton1_listadoEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_listadoEmpleadosActionPerformed(evt);
-            }
-        });
-
-        jButton1_agregarEmpleado.setText("Agregar empleado");
-        jButton1_agregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_agregarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        jButton2_eliminarEmpleado.setText("Despedir empleado");
-
         jLabel1_opcionesEmpleados.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1_opcionesEmpleados.setText("Opciones para empleados");
+
+        jButton2_OpcionesEmpleados.setText("Opciones empleados");
+        jButton2_OpcionesEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_OpcionesEmpleadosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2_eliminarEmpleado)
-                    .addComponent(jButton1_listadoEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1_opcionesEmpleados)
-                    .addComponent(jButton1_agregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2_OpcionesEmpleados)
+                    .addComponent(jLabel1_opcionesEmpleados))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,13 +87,9 @@ public class gerenteGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1_opcionesEmpleados)
-                .addGap(58, 58, 58)
-                .addComponent(jButton1_listadoEmpleados)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1_agregarEmpleado)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2_eliminarEmpleado)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(jButton2_OpcionesEmpleados)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -248,17 +231,14 @@ public class gerenteGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton1_agregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agregarEmpleadoActionPerformed
-        agregarEmpleado nuevoEmpleado = new agregarEmpleado();
-        nuevoEmpleado.setVisible(true);
-        nuevoEmpleado.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton1_agregarEmpleadoActionPerformed
-
-    private void jButton1_listadoEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_listadoEmpleadosActionPerformed
-        listaTrabajadores lista = new listaTrabajadores();
-        lista.setVisible(true);
-        lista.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton1_listadoEmpleadosActionPerformed
+    private void jButton2_OpcionesEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_OpcionesEmpleadosActionPerformed
+        try {
+            Gui opcionesEmpleado = new Gui();
+            opcionesEmpleado.setVisible(true);
+            opcionesEmpleado.setLocationRelativeTo(null);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2_OpcionesEmpleadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,10 +277,8 @@ public class gerenteGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton1_agregarEmpleado;
-    private javax.swing.JButton jButton1_listadoEmpleados;
     private javax.swing.JButton jButton1_salir;
-    private javax.swing.JButton jButton2_eliminarEmpleado;
+    private javax.swing.JButton jButton2_OpcionesEmpleados;
     private javax.swing.JButton jButton3_mensuales;
     private javax.swing.JLabel jLabel1_gerencia;
     private javax.swing.JLabel jLabel1_opcionesEmpleados;

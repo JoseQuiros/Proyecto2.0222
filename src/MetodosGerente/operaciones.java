@@ -7,14 +7,15 @@ package MetodosGerente;
 
 import java.rmi.server.ObjID;
 import USUARIOS.colaborador;
+import java.io.File;
 
 /**
  *
  * @author Jasson
  */
 public interface operaciones {
-    public void listadoEmpleados(rutasTxt rutaArchivo);
-    public int agregarEmpleado(colaborador nuevoColaborador);
-    public void eliminarEmpleado();
-    public boolean buscarEmpleado(String nombre);
+
+    public void BorrarFichero(File Ffichero);
+
+    public void eliminarEmpleado(String nombreABorrar);
 }
