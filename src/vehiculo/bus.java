@@ -13,14 +13,16 @@ public class bus {
 
     String id;
     String rutaAsignada;
+    String hora;
     int[] asientosOcupados;
 
     public bus() {
     }
 
-    public bus(String id, String rutaAsignada, int[] asientosOcupados) {
+    public bus(String id, String rutaAsignada, String hora, int[] asientosOcupados) {
         this.id = id;
         this.rutaAsignada = rutaAsignada;
+        this.hora = hora;
         this.asientosOcupados = asientosOcupados;
     }
 
@@ -40,12 +42,20 @@ public class bus {
         this.rutaAsignada = rutaAsignada;
     }
 
-    public int[] getAsientos() {
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public int[] getAsientosOcupados() {
         return asientosOcupados;
     }
 
-    public void setAsientos(int[] asientos) {
-        this.asientosOcupados = asientos;
+    public void setAsientosOcupados(int[] asientosOcupados) {
+        this.asientosOcupados = asientosOcupados;
     }
 
 }

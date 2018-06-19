@@ -61,7 +61,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" min="-2" pref="148" max="-2" attributes="0"/>
+                                  <Component id="jComboBox2_rutas" min="-2" pref="148" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -79,11 +79,11 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel3_ejemploHora" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="jTextField1" min="-2" pref="38" max="-2" attributes="0"/>
+                                          <Component id="jTextField1_hora" min="-2" pref="38" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel3_puntosHora" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField2" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="jTextField2_minutos" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -111,12 +111,12 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox2_rutas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField1_hora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField2_minutos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3_puntosHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3_hora" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -177,6 +177,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar nueva unidad"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_agregarUnidadesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1_salir">
           <Properties>
@@ -186,7 +189,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_salirActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="jComboBox2_rutas">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -199,9 +202,9 @@
             <Property name="text" type="java.lang.String" value="Hora asignada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jTextField1_hora">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1_horaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3_puntosHora">
@@ -212,7 +215,7 @@
             <Property name="text" type="java.lang.String" value=":"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="jTextField2_minutos">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3_ejemploHora">
           <Properties>

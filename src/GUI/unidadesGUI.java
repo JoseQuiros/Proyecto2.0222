@@ -1,9 +1,14 @@
 package GUI;
 
+import MetodosColaborador.operacionesColaborador;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
+import vehiculo.bus;
+import vehiculo.tren;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,7 +37,7 @@ public class unidadesGUI extends javax.swing.JFrame {
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
-                jComboBox2.addItem(cadena);
+                jComboBox2_rutas.addItem(cadena);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,11 +61,11 @@ public class unidadesGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1_agregarUnidades = new javax.swing.JButton();
         jButton1_salir = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2_rutas = new javax.swing.JComboBox<>();
         jLabel3_hora = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField1_hora = new javax.swing.JTextField();
         jLabel3_puntosHora = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField2_minutos = new javax.swing.JTextField();
         jLabel3_ejemploHora = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -84,6 +89,11 @@ public class unidadesGUI extends javax.swing.JFrame {
         jLabel5.setText("Id :");
 
         jButton1_agregarUnidades.setText("Agregar nueva unidad");
+        jButton1_agregarUnidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_agregarUnidadesActionPerformed(evt);
+            }
+        });
 
         jButton1_salir.setText("Salir");
         jButton1_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +105,9 @@ public class unidadesGUI extends javax.swing.JFrame {
         jLabel3_hora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_hora.setText("Hora asignada:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1_hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextField1_horaActionPerformed(evt);
             }
         });
 
@@ -119,7 +129,7 @@ public class unidadesGUI extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox2_rutas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -134,11 +144,11 @@ public class unidadesGUI extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3_ejemploHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel3_puntosHora)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(170, 170, 170)
                         .addComponent(jComboBox1_eleccionNuevaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -156,11 +166,11 @@ public class unidadesGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2_rutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3_puntosHora)
                     .addComponent(jLabel3_hora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,9 +216,38 @@ public class unidadesGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_horaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField1_horaActionPerformed
+
+    private void jButton1_agregarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agregarUnidadesActionPerformed
+        String tipo = jComboBox1_eleccionNuevaRuta.getSelectedItem().toString();
+        if (tipo == "Tren") {
+            tren trenNuevo = new tren();
+            trenNuevo.setId(jTextField3_id.getText());
+            trenNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
+            trenNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
+
+            operacionesColaborador agregar = new operacionesColaborador();
+            if (agregar.agregarUnidad(trenNuevo, tipo) == 1) {
+                JOptionPane.showMessageDialog(this, "Unidad insertado");
+            } else {
+                JOptionPane.showMessageDialog(this, "Unidad ya existe");
+            }
+        } else {
+            bus busNuevo = new bus();
+            busNuevo.setId(jTextField3_id.getText());
+            busNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
+            busNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
+
+            operacionesColaborador agregar = new operacionesColaborador();
+            if (agregar.agregarUnidad(busNuevo, tipo) == 1) {
+                JOptionPane.showMessageDialog(this, "Unidad insertada");
+            } else {
+                JOptionPane.showMessageDialog(this, "Unidad ya existe");
+            }
+        }
+    }//GEN-LAST:event_jButton1_agregarUnidadesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,7 +257,7 @@ public class unidadesGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1_agregarUnidades;
     private javax.swing.JButton jButton1_salir;
     private javax.swing.JComboBox<String> jComboBox1_eleccionNuevaRuta;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox2_rutas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3_ejemploHora;
@@ -226,8 +265,8 @@ public class unidadesGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3_puntosHora;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField1_hora;
+    private javax.swing.JTextField jTextField2_minutos;
     private javax.swing.JTextField jTextField3_id;
     // End of variables declaration//GEN-END:variables
 }
