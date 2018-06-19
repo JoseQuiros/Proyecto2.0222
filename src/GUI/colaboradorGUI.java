@@ -14,6 +14,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class colaboradorGUI extends javax.swing.JFrame {
 
@@ -63,6 +65,11 @@ public class colaboradorGUI extends javax.swing.JFrame {
         });
 
         jButton2_eliminarCliente.setText("Eliminar Cliente");
+        jButton2_eliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_eliminarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -237,6 +244,30 @@ public class colaboradorGUI extends javax.swing.JFrame {
         nuevaRuta.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_jButton1_agregarRutaActionPerformed
+
+    private void jButton2_eliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_eliminarClienteActionPerformed
+
+
+
+
+        // TODO add your handling code here:
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new Gui_1().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            
+        });
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2_eliminarClienteActionPerformed
 
     /**
      * @param args the command line arguments

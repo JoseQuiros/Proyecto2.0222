@@ -5,13 +5,19 @@
  */
 package MetodosColaborador;
 
+import static MetodosGerente.operacionesGerente.BorrarFichero;
 import USUARIOS.cliente;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+
 import vehiculo.bus;
 import vehiculo.tren;
 
@@ -63,9 +69,77 @@ public class operacionesColaborador implements operacionColaborador {
         return insertado;
     }
 
-    @Override
-    public void eliminarCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminarCliente(String lineaBorrar) {
+      String ruta="Clientes.txt";
+        try {
+            File inFile = new File(ruta);
+
+            //Comprueba que exista un archivo con ese nombre en la dirección ingresada.
+            if (!inFile.isFile()) {
+                JOptionPane.showMessageDialog(null, "No hay un archivo en la ruta", "Ubicación incorrecta", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            //Crea el nuevo archivo que luego será renombrado como el nombre del archivo original.
+            System.out.println("se crea un arhivo cliente");
+            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");//
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
+            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+            String line = null;
+
+            //Lee del archivo original y escribe en el nuevo
+            //excepto la línea que se quiere borrar.
+            while ((line = br.readLine()) != null) {
+                /*
+            * El método trim() devuelve una copia de una cadena 
+            * con espacios en blanco iniciales y finales eliminados, 
+            * o la misma cadena si no tiene espacios en blanco iniciales
+            * o finales.
+                 */
+
+                if (!line.trim().equals(lineaBorrar)) {
+                    pw.println(line);
+                    pw.flush();
+                }
+
+            }
+            pw.close();
+            br.close();
+//          
+   /*Obtengo el nombre del fichero inicial*/
+                String SnomAntiguo=inFile.getName();
+                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
+                /*Borro el fichero inicial*/
+                BorrarFichero(inFile);
+                /*renombro el nuevo fichero con el nombre del fichero inicial*/
+                tempFile.renameTo(inFile);
+                
+                /*Cierro el flujo de lectura*/
+                br.close();
+                
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+     
+    }
+      public static void BorrarFichero(File Ffichero) {
+        try {
+            /*Si existe el fichero*/
+            if (Ffichero.exists()) {
+                /*Borra el fichero*/
+                Ffichero.delete();
+                System.out.println("Fichero Borrado con Exito");
+            } else {
+                System.out.println("Fichero no pudo ser borrado");
+            }
+        } catch (Exception ex) {
+            /*Captura un posible error y le imprime en pantalla*/
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
@@ -169,6 +243,10 @@ public class operacionesColaborador implements operacionColaborador {
     }
 
     @Override
+
+    public void eliminarCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     public int agregarUnidad(Object object, String tipo) {
         int opcion = 0;
         int insertado = 0;
@@ -294,6 +372,7 @@ public class operacionesColaborador implements operacionColaborador {
         }
 
         return encontrado;
+
     }
 
 }

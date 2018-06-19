@@ -127,9 +127,9 @@ public class operacionesGerente implements operaciones {
     }
 
     public void eliminarEmpleado(String nombreABorrar) {
-
+      String ruta="colaborador.txt";
         try {
-            File inFile = new File("C:\\Users\\Jose\\Documents\\NetBeansProjects\\Proyecto\\Proyecto2\\colaborador.txt");
+            File inFile = new File(ruta);
 
             //Comprueba que exista un archivo con ese nombre en la dirección ingresada.
             if (!inFile.isFile()) {
@@ -138,8 +138,8 @@ public class operacionesGerente implements operaciones {
             }
 
             //Crea el nuevo archivo que luego será renombrado como el nombre del archivo original.
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Jose\\Documents\\NetBeansProjects\\Proyecto\\Proyecto2\\colaborador.txt"));
+            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");//
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
             PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
             String line = null;
 
@@ -161,28 +161,28 @@ public class operacionesGerente implements operaciones {
             }
             pw.close();
             br.close();
-            inFile.delete();
-
-            if (!inFile.delete()) {
-                JOptionPane.showMessageDialog(null, "No se puedo borrar el archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-          
+//            inFile.delete();
 //
+//            if (!inFile.delete()) {
+//                JOptionPane.showMessageDialog(null, "No se puedo borrar el archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//          
+
 //            Le asigna al nuevo archivo el nombre que tenía el anterior
-            if (!tempFile.renameTo(inFile)) {
-                JOptionPane.showMessageDialog(null, "No fue posible cambiarle el nombre al nuevo archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
-            }
+//            if (!tempFile.renameTo(inFile)) {
+//                JOptionPane.showMessageDialog(null, "No fue posible cambiarle el nombre al nuevo archivo", "Error de archivos", JOptionPane.ERROR_MESSAGE);
+//            }
    /*Obtengo el nombre del fichero inicial*/
-//                String SnomAntiguo=inFile.getName();
-//                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
-//                /*Borro el fichero inicial*/
-//                BorrarFichero(inFile);
-//                /*renombro el nuevo fichero con el nombre del fichero inicial*/
-//                tempFile.renameTo(inFile);
-//                
-//                /*Cierro el flujo de lectura*/
-//                br.close();
+                String SnomAntiguo=inFile.getName();
+                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
+                /*Borro el fichero inicial*/
+                BorrarFichero(inFile);
+                /*renombro el nuevo fichero con el nombre del fichero inicial*/
+                tempFile.renameTo(inFile);
+                
+                /*Cierro el flujo de lectura*/
+                br.close();
                 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -206,7 +206,13 @@ public class operacionesGerente implements operaciones {
             System.out.println(ex.getMessage());
         }
     }
-
+ public void renameArchivo(){
+ 
+ 
+ 
+ 
+ 
+ }
     @Override
     public boolean buscarEmpleado(String nombre) {
         String ruta = "Trabajadores.txt";
