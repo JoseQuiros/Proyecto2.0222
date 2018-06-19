@@ -254,6 +254,8 @@ public class Gui extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
         int fila = tabla.getSelectedRow();
+      
+
         String lineaBorrar = (tabla.getValueAt(fila, 0).toString())+",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString())+",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString())+",";
@@ -264,7 +266,7 @@ public class Gui extends javax.swing.JFrame {
 
         operacionesGerente op = new operacionesGerente();
         op.eliminarEmpleado(lineaBorrar);
-
+        
         if (fila != -1) {
             modelo.removeRow(fila);
         } else {
@@ -272,6 +274,9 @@ public class Gui extends javax.swing.JFrame {
 
         }
 
+ 
+
+    
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
