@@ -159,8 +159,8 @@ public class Gui_1 extends javax.swing.JFrame {
 
         String lineaBorrar = (tabla.getValueAt(fila, 0).toString()) + ",";
 
-        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString()) ;
-System.out.println(lineaBorrar);
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString());
+        System.out.println(lineaBorrar);
 //        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
         operacionesColaborador op = new operacionesColaborador();
         op.eliminarCliente(lineaBorrar);
@@ -181,7 +181,7 @@ System.out.println(lineaBorrar);
     }//GEN-LAST:event_jButton1SalirActionPerformed
 
     //quitar main
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Salir;
     private javax.swing.JButton jButtonEliminar;

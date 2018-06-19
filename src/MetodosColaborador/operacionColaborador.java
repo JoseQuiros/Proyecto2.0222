@@ -7,6 +7,7 @@ package MetodosColaborador;
 
 import USUARIOS.cliente;
 import USUARIOS.colaborador;
+import java.io.File;
 
 /**
  *
@@ -27,5 +28,9 @@ public interface operacionColaborador {
     public int agregarUnidad(Object object, String tipo);
 
     public boolean buscarUnidad(String id);
+
+    public void eliminarCliente(String lineaBorrar);
+
+    public void BorrarFichero(File Ffichero);
 
 }

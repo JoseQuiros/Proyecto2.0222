@@ -47,21 +47,21 @@ public class Gui extends javax.swing.JFrame {
         modelo.addColumn("Telefono");
 
         modelo.addColumn("edad");
-        if(!file.exists()){
-                file.createNewFile();
-            }
+        if (!file.exists()) {
+            file.createNewFile();
+        }
         String ruta = "colaborador.txt";
         File file = new File(ruta);
         String cadena = "";
         FileReader fr = new FileReader("colaborador.txt");
         int lNumeroLineas = 0;
-         //crear el archivo en disco duro, 
-            
+        //crear el archivo en disco duro, 
+
         BufferedReader bf = new BufferedReader(fr);
         while ((cadena = bf.readLine()) != null) {
             lNumeroLineas++;
         }
-         bf.close();
+        bf.close();
         Object[] data = new Object[lNumeroLineas];
 
         cadena = "";
@@ -119,6 +119,7 @@ public class Gui extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jButtonEliminar = new javax.swing.JButton();
+        jButton1_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -219,6 +220,13 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        jButton1_salir.setText("Salir");
+        jButton1_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_salirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,7 +236,9 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(380, 380, 380)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton1_salir)
+                        .addGap(233, 233, 233)
                         .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -244,7 +254,9 @@ public class Gui extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEliminar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonEliminar)
+                            .addComponent(jButton1_salir))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -254,19 +266,17 @@ public class Gui extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
         int fila = tabla.getSelectedRow();
-      
 
-        String lineaBorrar = (tabla.getValueAt(fila, 0).toString())+",";
-        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString())+",";
-        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString())+",";
-        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString())+",";
+        String lineaBorrar = (tabla.getValueAt(fila, 0).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
 //        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
-     
 
         operacionesGerente op = new operacionesGerente();
         op.eliminarEmpleado(lineaBorrar);
-        
+
         if (fila != -1) {
             modelo.removeRow(fila);
         } else {
@@ -274,9 +284,7 @@ public class Gui extends javax.swing.JFrame {
 
         }
 
- 
 
-    
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
@@ -322,7 +330,7 @@ public class Gui extends javax.swing.JFrame {
 
             System.out.println("Cerramos conexion");
             brWriter.close();
-        
+
         } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();
@@ -345,6 +353,10 @@ public class Gui extends javax.swing.JFrame {
     private void jTextFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldContraseñaActionPerformed
+
+    private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1_salirActionPerformed
 
     private void limpiar() {
 
@@ -391,6 +403,7 @@ public class Gui extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_salir;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JComboBox jComboBoxSexo;
