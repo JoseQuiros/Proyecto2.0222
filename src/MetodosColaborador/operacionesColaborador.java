@@ -246,7 +246,7 @@ public class operacionesColaborador implements operacionColaborador {
 
     public void eliminarCliente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
+    }
     public int agregarUnidad(Object object, String tipo) {
         int opcion = 0;
         int insertado = 0;
