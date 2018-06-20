@@ -46,6 +46,9 @@ public class Gui extends javax.swing.JFrame {
 
         modelo.addColumn("Telefono");
 
+
+        modelo.addColumn("edad");
+
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -270,6 +273,9 @@ public class Gui extends javax.swing.JFrame {
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
+
+
+//        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
 
 
         operacionesGerente op = new operacionesGerente();
