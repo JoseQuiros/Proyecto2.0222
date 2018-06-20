@@ -247,6 +247,10 @@ public class unidadesGUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Unidad ya existe");
             }
         }
+        jTextField3_id.setText("");
+        jTextField1_hora.setText("");
+        jTextField2_minutos.setText("");
+        
     }//GEN-LAST:event_jButton1_agregarUnidadesActionPerformed
 
     /**

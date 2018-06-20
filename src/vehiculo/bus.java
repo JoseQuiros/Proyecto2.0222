@@ -14,16 +14,15 @@ public class bus {
     String id;
     String rutaAsignada;
     String hora;
-    int[] asientosOcupados;
+    int asientosOcupados=0;
 
     public bus() {
     }
 
-    public bus(String id, String rutaAsignada, String hora, int[] asientosOcupados) {
+    public bus(String id, String rutaAsignada, String hora) {
         this.id = id;
         this.rutaAsignada = rutaAsignada;
         this.hora = hora;
-        this.asientosOcupados = asientosOcupados;
     }
 
     public String getId() {
@@ -50,12 +49,15 @@ public class bus {
         this.hora = hora;
     }
 
-    public int[] getAsientosOcupados() {
+    public int getAsientosOcupados() {
         return asientosOcupados;
     }
 
-    public void setAsientosOcupados(int[] asientosOcupados) {
+    public void setAsientosOcupados(int asientosOcupados) {
         this.asientosOcupados = asientosOcupados;
     }
+    
+
+
 
 }
