@@ -119,30 +119,40 @@ public class Gui extends javax.swing.JFrame {
         jButton1_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario"));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new java.awt.GridLayout(9, 0));
 
         jLabel2.setText("Nombre");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel2);
+
+        jTextFieldSNombre.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jTextFieldSNombre);
 
         jLabel3.setText("Usuario");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel3);
+
+        jTextFieldPUsuario.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jTextFieldPUsuario);
 
         jLabel6.setText("Sexo");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel6);
 
+        jComboBoxSexo.setBackground(new java.awt.Color(102, 102, 102));
         jComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
         jPanel1.add(jComboBoxSexo);
 
         jLabel8.setText("Telefono");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel8);
+
+        jTextFieldTelefono.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jTextFieldTelefono);
 
         jLabel10.setText("Contraseña");
@@ -171,6 +181,7 @@ public class Gui extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2);
 
+        jTextFieldContraseña.setBackground(new java.awt.Color(102, 102, 102));
         jTextFieldContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContraseñaActionPerformed(evt);
@@ -186,6 +197,7 @@ public class Gui extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonGuardar);
 
+        tabla.setBackground(new java.awt.Color(153, 153, 153));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
