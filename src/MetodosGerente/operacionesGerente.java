@@ -113,7 +113,7 @@ public class operacionesGerente implements operaciones {
                 JOptionPane.showMessageDialog(null, "No hay un archivo en la ruta", "Ubicación incorrecta", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        
+        //+10
         /*Obtengo un numero aleatorio*/
         Random numaleatorio= new Random(3816L); 
         /*Creo un nombre para el nuevo fichero apartir del
