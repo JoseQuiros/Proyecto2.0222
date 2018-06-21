@@ -113,9 +113,9 @@ public class agregarCliente extends javax.swing.JFrame {
 
         operacionesColaborador agregar = new operacionesColaborador();
         if (agregar.agregarCliente(nuevoCliente) == 1) {
-            JOptionPane.showMessageDialog(this, "Trabajador insertado");
+            JOptionPane.showMessageDialog(this, "Usuario insertado");
         } else {
-            JOptionPane.showMessageDialog(this, "Trabajador ya existe");
+            JOptionPane.showMessageDialog(this, "Usuario ya existente");
         }
         jTextField1_nombreUsuario.setText("");
         jTextField1_contraseña.setText("");
