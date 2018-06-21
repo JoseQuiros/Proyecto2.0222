@@ -1,5 +1,0 @@
-
-Mameluco,El tuco,mjm,Masculino,69
-Jasson,Berserker,12345,Masculino,89751596
-
--jose,quiroos,2131,Masculino,12312
