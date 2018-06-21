@@ -113,14 +113,13 @@ public class operacionesGerente implements operaciones {
                 JOptionPane.showMessageDialog(null, "No hay un archivo en la ruta", "Ubicación incorrecta", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        
+        //+10
         /*Obtengo un numero aleatorio*/
         Random numaleatorio= new Random(3816L); 
         /*Creo un nombre para el nuevo fichero apartir del
          *numero aleatorio*/
-        String SnombFichNuev="UnidadesTemp.txt";
-        /*Crea un objeto File para el fichero nuevo*/
-        File FficheroNuevo=new File(SnombFichNuev);
+           File FficheroNuevo = new File(FficheroAntiguo.getAbsolutePath() + ".tmp");//
+     
         try {
             /*Si existe el fichero inical*/
             if(FficheroAntiguo.exists()){
@@ -174,6 +173,7 @@ public class operacionesGerente implements operaciones {
             System.out.println(ex.getMessage());
         }
     }
+      
      
 }
 
