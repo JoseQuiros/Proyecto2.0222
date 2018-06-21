@@ -76,6 +76,11 @@ public class colaboradorGUI extends javax.swing.JFrame {
         jLabel1.setText("Opciones de clientes");
 
         jButton2_venderBoletos.setText("Vender boletos");
+        jButton2_venderBoletos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_venderBoletosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -253,6 +258,14 @@ public class colaboradorGUI extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton2_eliminarClienteActionPerformed
+
+    private void jButton2_venderBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_venderBoletosActionPerformed
+        // TODO add your handling code here:
+        venderGUI venderEjec= new venderGUI();
+        venderEjec.setVisible(true);
+        venderEjec.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_jButton2_venderBoletosActionPerformed
 
     /**
      * @param args the command line arguments

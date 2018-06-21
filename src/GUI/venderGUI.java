@@ -46,8 +46,11 @@ public class venderGUI extends javax.swing.JFrame {
                     }
 
                 }
+               
 
-            }
+            } 
+            fileR.close();
+                buffReader.close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
@@ -72,6 +75,7 @@ public class venderGUI extends javax.swing.JFrame {
         jButton1_ventaBus = new javax.swing.JButton();
         jComboBox2_buses = new javax.swing.JComboBox<>();
         jLabel1_tipoTiquete = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,6 +154,13 @@ public class venderGUI extends javax.swing.JFrame {
 
         jLabel1_tipoTiquete.setText("Seleccione el tipo de tiquete");
 
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,15 +170,17 @@ public class venderGUI extends javax.swing.JFrame {
                 .addComponent(jLabel1_tipoTiquete)
                 .addGap(145, 145, 145))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jButton3_aceptar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jButton3_aceptar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,7 +193,9 @@ public class venderGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jButton3_aceptar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3_aceptar)
+                    .addComponent(jButtonSalir))
                 .addGap(18, 18, 18))
         );
 
@@ -248,9 +263,12 @@ public class venderGUI extends javax.swing.JFrame {
                     System.out.println(nuevaCadena1);
                     System.out.println(lineaBorrar);
             } 
+                
         
 //        op.modificarLinea(lineaBorrar, nuevaCadena1);
             }
+            fileR.close();
+            buffReader.close();
         operacionesGerente op= new operacionesGerente();
         op.ModificarFichero(lineaBorrar, nuevaCadena1);
         } catch (IOException e) {
@@ -261,6 +279,11 @@ public class venderGUI extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton3_aceptarActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        // TODO add your handling code here:
+         this.dispose(); 
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +324,7 @@ public class venderGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1_ventaBus;
     private javax.swing.JButton jButton2_ventaTren;
     private javax.swing.JButton jButton3_aceptar;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<String> jComboBox1_trenes;
     private javax.swing.JComboBox<String> jComboBox2_buses;
     private javax.swing.JLabel jLabel1_tipoTiquete;
