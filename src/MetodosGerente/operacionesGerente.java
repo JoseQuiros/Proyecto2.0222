@@ -138,6 +138,7 @@ public class operacionesGerente implements operaciones {
                          EcribirFichero(FficheroNuevo,Slinea);
                     }             
                 }
+                Flee.close();
                 /*Obtengo el nombre del fichero inicial*/
                 String SnomAntiguo=FficheroAntiguo.getName();
                 /*Borro el fichero inicial*/
@@ -147,6 +148,8 @@ public class operacionesGerente implements operaciones {
             BorrarFichero(FficheroAntiguo);
             /*renombro el nuevo fichero con el nombre del fichero inicial*/
             FficheroNuevo.renameTo(FficheroAntiguo);
+            String nombreFicheroNuevo=FficheroNuevo.getName();
+            System.out.println(nombreFicheroNuevo);
             }else{
                 System.out.println("Fichero No Existe");
             }
