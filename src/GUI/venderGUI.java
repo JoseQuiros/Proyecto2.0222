@@ -10,7 +10,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
 import tiquetes.operacionesTiquetes;
+
 
 /**
  *
@@ -23,6 +27,7 @@ public class venderGUI extends javax.swing.JFrame {
      */
     int opcion = 0;
     String datos = "";
+
     private String ruta = "Unidades.txt";
     private File file = new File(ruta);
 
@@ -34,21 +39,23 @@ public class venderGUI extends javax.swing.JFrame {
             if (!file.exists()) {
                 file.createNewFile();
             }
-
             String cadena = "";
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
                 if (cadena.split(",")[0].equalsIgnoreCase("Bus")) {
-                    jComboBox2_buses.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
-                } else {
-
-                    if (cadena.split(",")[0].equalsIgnoreCase("Tren")) {
-                        jComboBox1_trenes.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
+                    int cantidadAsientosBus = Integer.parseInt(cadena.split(",")[4]);
+                    if (cantidadAsientosBus < 10) {
+                        jComboBox2_buses.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
                     }
-
+                } else {
+                    if (cadena.split(",")[0].equalsIgnoreCase("Tren")) {
+                        int cantidadAsientosTren = Integer.parseInt(cadena.split(",")[4]);
+                        if (cantidadAsientosTren < 15) {
+                            jComboBox1_trenes.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
+                        }
+                    }
                 }
-
             }
             fileR.close();
             buffReader.close();
@@ -131,6 +138,11 @@ public class venderGUI extends javax.swing.JFrame {
         });
 
         jComboBox2_buses.setEnabled(false);
+        jComboBox2_buses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2_busesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -272,6 +284,10 @@ public class venderGUI extends javax.swing.JFrame {
             buffReader.close();
             operacionesGerente op = new operacionesGerente();
             op.ModificarFichero(lineaBorrar, nuevaCadena1);
+
+            JOptionPane.showMessageDialog(null,"Su tiquete se vendio satisfactoriamente!!");
+            this.dispose();
+
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
@@ -284,6 +300,10 @@ public class venderGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jComboBox2_busesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2_busesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2_busesActionPerformed
 
     /**
      * @param args the command line arguments
