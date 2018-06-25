@@ -361,7 +361,23 @@ public class Gui extends javax.swing.JFrame {
      
     }
 
+
+    //quitar main
+    public static void main(String args[]) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new Gui().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_salir;
     private javax.swing.JButton jButtonEliminar;

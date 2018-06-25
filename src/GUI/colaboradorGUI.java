@@ -128,8 +128,18 @@ public class colaboradorGUI extends javax.swing.JFrame {
         });
 
         jButton_modificaHorarioBuses.setText("Modificar Horario Bus");
+        jButton_modificaHorarioBuses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_modificaHorarioBusesActionPerformed(evt);
+            }
+        });
 
         jButton1_modificarHorarioTre.setText("Modificar Horario Tren");
+        jButton1_modificarHorarioTre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_modificarHorarioTreActionPerformed(evt);
+            }
+        });
 
         jButton_tiquetesVendidos.setText("Tiquetes Vendidos");
         jButton_tiquetesVendidos.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +279,14 @@ public class colaboradorGUI extends javax.swing.JFrame {
         venderEjec.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButton2_venderBoletosActionPerformed
+
+    private void jButton_modificaHorarioBusesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modificaHorarioBusesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_modificaHorarioBusesActionPerformed
+
+    private void jButton1_modificarHorarioTreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_modificarHorarioTreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_modificarHorarioTreActionPerformed
 
     /**
      * @param args the command line arguments
