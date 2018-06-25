@@ -165,11 +165,14 @@ public class Gui_2 extends javax.swing.JFrame {
 
         String lineaBorrar = (tabla.getValueAt(fila, 0).toString()) + ",";
 
-        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString());
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString() + ",");
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
         System.out.println(lineaBorrar);
 //        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
         operacionesColaborador op = new operacionesColaborador();
-        op.eliminarCliente(lineaBorrar);
+        op.eliminarBus(lineaBorrar);
 
         if (fila != -1) {
             modelo.removeRow(fila);
@@ -185,7 +188,7 @@ public class Gui_2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1SalirActionPerformed
-  public static void main(String args[]) {
+    public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

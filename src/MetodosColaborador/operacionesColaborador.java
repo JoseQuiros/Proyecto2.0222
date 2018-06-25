@@ -125,6 +125,63 @@ public class operacionesColaborador implements operacionColaborador {
         
      
     }
+    public void eliminarBus(String lineaBorrar) {
+      String ruta="Unidades.txt";
+        try {
+            File inFile = new File(ruta);
+
+            //Comprueba que exista un archivo con ese nombre en la dirección ingresada.
+            if (!inFile.isFile()) {
+                JOptionPane.showMessageDialog(null, "No hay un archivo en la ruta", "Ubicación incorrecta", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            //Crea el nuevo archivo que luego será renombrado como el nombre del archivo original.
+            System.out.println("se crea un arhivo cliente");
+            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");//
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
+            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+            String line = null;
+
+            //Lee del archivo original y escribe en el nuevo
+            //excepto la línea que se quiere borrar.
+            while ((line = br.readLine()) != null) {
+                /*
+            * El método trim() devuelve una copia de una cadena 
+            * con espacios en blanco iniciales y finales eliminados, 
+            * o la misma cadena si no tiene espacios en blanco iniciales
+            * o finales.
+                 */
+
+                if (!line.trim().equals(lineaBorrar)) {
+                    pw.println(line);
+                    pw.flush();
+                }
+
+            }
+            pw.close();
+            br.close();
+//          
+   /*Obtengo el nombre del fichero inicial*/
+                String SnomAntiguo=inFile.getName();
+                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
+                /*Borro el fichero inicial*/
+                BorrarFichero(inFile);
+                /*renombro el nuevo fichero con el nombre del fichero inicial*/
+                tempFile.renameTo(inFile);
+                
+                /*Cierro el flujo de lectura*/
+                br.close();
+                
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+     
+    }
       public void BorrarFichero(File Ffichero) {
         try {
             /*Si existe el fichero*/
@@ -373,5 +430,6 @@ public class operacionesColaborador implements operacionColaborador {
         return encontrado;
 
     }
+    
 
 }
