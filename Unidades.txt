@@ -1,2 +1,0 @@
-Bus,12345,Turrialba - San Jose,10:15,2
-Tren,12358,Turrialba - Limon,11:15,1

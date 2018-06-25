@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import tiquetes.operacionesTiquetes;
 
 /**
  *
@@ -24,9 +25,9 @@ public class busGUI extends javax.swing.JFrame {
      */
     String asientosOcupados[] = new String[11];
     File file = new File("asientosBus.txt");
-    String ruta = "asientosBus.txt";
+    //String ruta = operacionesTiquetes.obtenerdatos(datos);
     int contador = 0;
-
+    
     public busGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -118,6 +119,7 @@ public class busGUI extends javax.swing.JFrame {
                     if (contador == 10) {
                         JOptionPane.showMessageDialog(null, "Bus esta lleno, se cerra");
                         System.exit(0);
+                        
                     }
 
                 }
