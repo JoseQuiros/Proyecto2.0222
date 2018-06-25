@@ -1,3 +1,4 @@
-Bus,12345,Turrialba - San Jose,10:15,2
-Tren,12358,Turrialba - Limon,11:15,1
-Bus,123587,Turrialba - San Jose,10:30,2
+Bus,12345,Turrialba - San Jose,10:15,10
+Tren,12358,Turrialba - Limon,11:15,15
+Bus,123587,Turrialba - San Jose,10:30,4
+Tren,123589,Turrialba - Limon,11:45,10
