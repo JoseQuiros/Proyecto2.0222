@@ -11,6 +11,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
+import tiquetes.operacionesTiquetes;
+
+
 /**
  *
  * @author Jasson
@@ -22,8 +27,10 @@ public class venderGUI extends javax.swing.JFrame {
      */
     int opcion = 0;
     String datos = "";
-     private String ruta = "Unidades.txt";
-     private File file = new File(ruta);
+
+    private String ruta = "Unidades.txt";
+    private File file = new File(ruta);
+
     public venderGUI() {
         initComponents();
         String ruta = "Unidades.txt";
@@ -32,31 +39,32 @@ public class venderGUI extends javax.swing.JFrame {
             if (!file.exists()) {
                 file.createNewFile();
             }
-
             String cadena = "";
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
                 if (cadena.split(",")[0].equalsIgnoreCase("Bus")) {
-                    jComboBox2_buses.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
-                } else {
-
-                    if (cadena.split(",")[0].equalsIgnoreCase("Tren")) {
-                        jComboBox1_trenes.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
+                    int cantidadAsientosBus = Integer.parseInt(cadena.split(",")[4]);
+                    if (cantidadAsientosBus < 10) {
+                        jComboBox2_buses.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
                     }
-
+                } else {
+                    if (cadena.split(",")[0].equalsIgnoreCase("Tren")) {
+                        int cantidadAsientosTren = Integer.parseInt(cadena.split(",")[4]);
+                        if (cantidadAsientosTren < 15) {
+                            jComboBox1_trenes.addItem(cadena.split(",")[1] + "," + cadena.split(",")[2] + "," + cadena.split(",")[3]);
+                        }
+                    }
                 }
-               
-
-            } 
+            }
             fileR.close();
-                buffReader.close();
+            buffReader.close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
-            
+
         }
-          }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,6 +138,11 @@ public class venderGUI extends javax.swing.JFrame {
         });
 
         jComboBox2_buses.setEnabled(false);
+        jComboBox2_buses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2_busesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -217,6 +230,8 @@ public class venderGUI extends javax.swing.JFrame {
     private void jButton3_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_aceptarActionPerformed
         if (opcion == 1) {
             datos = jComboBox2_buses.getSelectedItem().toString();
+            operacionesTiquetes.obtenerdatos(datos);
+            
         } else {
             if (opcion == 2) {
                 datos = jComboBox1_trenes.getSelectedItem().toString();
@@ -232,58 +247,63 @@ public class venderGUI extends javax.swing.JFrame {
             String cadena = "";
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
-            String nuevaCadena1=""; 
-            String lineaBorrar="";
+            String nuevaCadena1 = "";
+            String lineaBorrar = "";
             //Aqui lo que se hace es obtener una cadena de la linea en la que el numero de asientos decrece
             // Se obtiene una cadena que es la  que se va a modificar en el archivo de texto
             while ((cadena = buffReader.readLine()) != null) {
                 if (cadena.split(",")[1].equalsIgnoreCase(datos.split(",")[0])) {
-                    
-                   int enteroAsiento=Integer.parseInt(cadena.split(",")[4]);
-                   String StringAsientoMod=cadena.split(",")[4];
-                   System.out.println(StringAsientoMod);
-                   enteroAsiento++;
-                   String StringAsiento=""+enteroAsiento;
-                   
-                   String[] nuevaCadena=cadena.split(",");
-                   String[] cadenaBorrar=cadena.split(",");
-                   nuevaCadena[4]=StringAsiento;
-                  
-                   
-                   for (int i = 0; i <nuevaCadena.length; i++) {
-                       if(i==nuevaCadena.length-1){
-                       nuevaCadena1+=nuevaCadena[i];
-                       lineaBorrar+=cadenaBorrar[i];
-                    }else{
-                            nuevaCadena1+=nuevaCadena[i]+",";
-                             lineaBorrar+=nuevaCadena[i]+",";
-                            }
-                 
-                }
+
+                    int enteroAsiento = Integer.parseInt(cadena.split(",")[4]);
+                    String StringAsientoMod = cadena.split(",")[4];
+                    System.out.println(StringAsientoMod);
+                    enteroAsiento++;
+                    String StringAsiento = "" + enteroAsiento;
+
+                    String[] nuevaCadena = cadena.split(",");
+                    String[] cadenaBorrar = cadena.split(",");
+                    nuevaCadena[4] = StringAsiento;
+
+                    for (int i = 0; i < nuevaCadena.length; i++) {
+                        if (i == nuevaCadena.length - 1) {
+                            nuevaCadena1 += nuevaCadena[i];
+                            lineaBorrar += cadenaBorrar[i];
+                        } else {
+                            nuevaCadena1 += nuevaCadena[i] + ",";
+                            lineaBorrar += nuevaCadena[i] + ",";
+                        }
+
+                    }
                     System.out.println(nuevaCadena1);
                     System.out.println(lineaBorrar);
-            } 
-                
-        
+                }
+
 //        op.modificarLinea(lineaBorrar, nuevaCadena1);
             }
             fileR.close();
             buffReader.close();
-        operacionesGerente op= new operacionesGerente();
-        op.ModificarFichero(lineaBorrar, nuevaCadena1);
+            operacionesGerente op = new operacionesGerente();
+            op.ModificarFichero(lineaBorrar, nuevaCadena1);
+
+            JOptionPane.showMessageDialog(null,"Su tiquete se vendio satisfactoriamente!!");
+            this.dispose();
+
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
         }
-    
 
 
     }//GEN-LAST:event_jButton3_aceptarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-         this.dispose(); 
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jComboBox2_busesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2_busesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2_busesActionPerformed
 
     /**
      * @param args the command line arguments

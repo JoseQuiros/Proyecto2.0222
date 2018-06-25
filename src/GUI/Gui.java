@@ -124,9 +124,7 @@ public class Gui extends javax.swing.JFrame {
 
         jScrollPane1.setForeground(new java.awt.Color(102, 102, 102));
 
-        tabla.setBackground(new java.awt.Color(255, 255, 255));
         tabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabla.setForeground(new java.awt.Color(0, 0, 0));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -154,42 +152,24 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldSNombre.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldSNombre.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Usuario");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextFieldPUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldPUsuario.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jComboBoxSexo.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxSexo.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Telefono");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextFieldTelefono.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldTelefono.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Contraseña");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextFieldContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldContraseña.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContraseñaActionPerformed(evt);
@@ -357,13 +337,6 @@ public class Gui extends javax.swing.JFrame {
             System.out.println("Error");
             e.printStackTrace();
         }
-//        colaborador trabajador = new colaborador();
-//        trabajador.setNombre(jTextFieldSNombre.getText());
-//        trabajador.setNumeroCelular(jTextFieldTelefono.getText());
-//        trabajador.setUsuario(jTextFieldPUsuario.getText());
-//        trabajador.setContraseña(jTextFieldContraseña.getText());
-//
-//        operacionesGerente agregar = new operacionesGerente();
 
         limpiar();
     }//GEN-LAST:event_jButtonGuardarActionPerformed
@@ -388,6 +361,7 @@ public class Gui extends javax.swing.JFrame {
      
     }
 
+
     //quitar main
     public static void main(String args[]) {
 
@@ -401,6 +375,9 @@ public class Gui extends javax.swing.JFrame {
             }
         });
     }
+
+ 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_salir;
     private javax.swing.JButton jButtonEliminar;

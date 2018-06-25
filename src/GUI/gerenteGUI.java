@@ -205,6 +205,9 @@ public class gerenteGUI extends javax.swing.JFrame {
 
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
+        menuLogin menu=new menuLogin();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
