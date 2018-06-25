@@ -10,7 +10,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
 import javax.swing.JOptionPane;
+
+import tiquetes.operacionesTiquetes;
+
 
 /**
  *
@@ -23,6 +27,9 @@ public class venderGUI extends javax.swing.JFrame {
      */
     int opcion = 0;
     String datos = "";
+
+    private String ruta = "Unidades.txt";
+    private File file = new File(ruta);
 
     public venderGUI() {
         initComponents();
@@ -223,6 +230,8 @@ public class venderGUI extends javax.swing.JFrame {
     private void jButton3_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_aceptarActionPerformed
         if (opcion == 1) {
             datos = jComboBox2_buses.getSelectedItem().toString();
+            operacionesTiquetes.obtenerdatos(datos);
+            
         } else {
             if (opcion == 2) {
                 datos = jComboBox1_trenes.getSelectedItem().toString();
@@ -275,8 +284,10 @@ public class venderGUI extends javax.swing.JFrame {
             buffReader.close();
             operacionesGerente op = new operacionesGerente();
             op.ModificarFichero(lineaBorrar, nuevaCadena1);
+
             JOptionPane.showMessageDialog(null,"Su tiquete se vendio satisfactoriamente!!");
             this.dispose();
+
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");

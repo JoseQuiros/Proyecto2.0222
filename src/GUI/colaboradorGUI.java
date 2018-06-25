@@ -48,7 +48,7 @@ public class colaboradorGUI extends javax.swing.JFrame {
         jButton1_agregarRuta = new javax.swing.JButton();
         jButton_modificaHorarioBuses = new javax.swing.JButton();
         jButton1_modificarHorarioTre = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton_tiquetesVendidos = new javax.swing.JButton();
         jButton2_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,7 +72,6 @@ public class colaboradorGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Opciones de clientes");
 
         jButton2_venderBoletos.setText("Vender boletos");
@@ -112,7 +111,6 @@ public class colaboradorGUI extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Opciones rutas/tiquetes");
 
         jButton1_agregarBusOTren.setText("Nuevo bus/tren");
@@ -133,10 +131,10 @@ public class colaboradorGUI extends javax.swing.JFrame {
 
         jButton1_modificarHorarioTre.setText("Modificar Horario Tren");
 
-        jButton1.setText("Tiquetes Vendidos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_tiquetesVendidos.setText("Tiquetes Vendidos");
+        jButton_tiquetesVendidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_tiquetesVendidosActionPerformed(evt);
             }
         });
 
@@ -156,7 +154,7 @@ public class colaboradorGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(jButton_tiquetesVendidos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(jButton1_agregarRuta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -178,7 +176,7 @@ public class colaboradorGUI extends javax.swing.JFrame {
                     .addComponent(jButton1_modificarHorarioTre)
                     .addComponent(jButton1_agregarRuta))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButton_tiquetesVendidos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -229,9 +227,14 @@ public class colaboradorGUI extends javax.swing.JFrame {
         nuevoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_ingresarClienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_tiquetesVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tiquetesVendidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+            int tipoReporte = 1;
+            String rutaArchivo = "Diairio.txt";
+            resultadoGUI resul = new resultadoGUI(tipoReporte, rutaArchivo);
+            resul.setVisible(true);
+            resul.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton_tiquetesVendidosActionPerformed
 
     private void jButton1_agregarBusOTrenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agregarBusOTrenActionPerformed
         unidadesGUI nuevaUnidad = new unidadesGUI();
@@ -303,7 +306,6 @@ public class colaboradorGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel colaboradorLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_agregarBusOTren;
     private javax.swing.JButton jButton1_agregarRuta;
     private javax.swing.JButton jButton1_ingresarCliente;
@@ -312,6 +314,7 @@ public class colaboradorGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton2_salir;
     private javax.swing.JButton jButton2_venderBoletos;
     private javax.swing.JButton jButton_modificaHorarioBuses;
+    private javax.swing.JButton jButton_tiquetesVendidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
