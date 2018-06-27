@@ -178,6 +178,9 @@ public class Gui_1 extends javax.swing.JFrame {
     private void jButton1SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        colaboradorGUI colaborador =new colaboradorGUI();
+        colaborador.setVisible(true);
+        colaborador.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1SalirActionPerformed
 
     //quitar main

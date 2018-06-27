@@ -145,6 +145,9 @@ public class agregarRutasGUI extends javax.swing.JFrame {
 
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
+        colaboradorGUI colaborador =new colaboradorGUI();
+        colaborador.setVisible(true);
+        colaborador.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
     /**

@@ -1,6 +1,7 @@
 package GUI;
 
 import MetodosColaborador.operacionesColaborador;
+import MetodosGerente.operacionesGerente;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,13 +20,16 @@ import vehiculo.tren;
  *
  * @author Jose
  */
-public class unidadesGUI extends javax.swing.JFrame {
+public class ModificarBusTren extends javax.swing.JFrame {
 
     /**
      * Creates new form unidadesGUI
      */
-    public unidadesGUI() {
+    public ModificarBusTren(String id, String lineaBorrar) {
+        String lineaBorrarOb = lineaBorrar;
         initComponents();
+        jTextField3_id.setText(id);
+        jTextField3_id.setEnabled(false);
         String ruta = "RutasBusTren.txt";
         File file = new File(ruta);
         try {
@@ -43,6 +47,7 @@ public class unidadesGUI extends javax.swing.JFrame {
             e.printStackTrace();
             System.out.println("Error");
         }
+
     }
 
     /**
@@ -55,11 +60,10 @@ public class unidadesGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1_eleccionNuevaRuta = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jTextField3_id = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jButton1_agregarUnidades = new javax.swing.JButton();
+        jButton1_modifcar = new javax.swing.JButton();
         jButton1_salir = new javax.swing.JButton();
         jComboBox2_rutas = new javax.swing.JComboBox<>();
         jLabel3_hora = new javax.swing.JLabel();
@@ -73,25 +77,24 @@ public class unidadesGUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jComboBox1_eleccionNuevaRuta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bus", "Tren" }));
-        jComboBox1_eleccionNuevaRuta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1_eleccionNuevaRutaActionPerformed(evt);
-            }
-        });
-
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ruta asignada:");
+
+        jTextField3_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3_idActionPerformed(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Id :");
 
-        jButton1_agregarUnidades.setText("Agregar nueva unidad");
-        jButton1_agregarUnidades.addActionListener(new java.awt.event.ActionListener() {
+        jButton1_modifcar.setText("Modificar");
+        jButton1_modifcar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_agregarUnidadesActionPerformed(evt);
+                jButton1_modifcarActionPerformed(evt);
             }
         });
 
@@ -122,44 +125,38 @@ public class unidadesGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2_rutas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField3_id, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3_hora)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox2_rutas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3_id, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1_agregarUnidades)
+                                .addComponent(jButton1_modifcar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1_salir))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3_hora)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3_ejemploHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3_puntosHora)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jComboBox1_eleccionNuevaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3_ejemploHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3_puntosHora)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jComboBox1_eleccionNuevaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -175,10 +172,10 @@ public class unidadesGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3_hora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3_ejemploHora)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1_agregarUnidades)
-                    .addComponent(jButton1_salir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1_salir)
+                    .addComponent(jButton1_modifcar))
                 .addGap(42, 42, 42))
         );
 
@@ -201,69 +198,81 @@ public class unidadesGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1_eleccionNuevaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1_eleccionNuevaRutaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1_eleccionNuevaRutaActionPerformed
-
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
-        colaboradorGUI colaborador =new colaboradorGUI();
-        colaborador.setVisible(true);
-        colaborador.setLocationRelativeTo(null);
+        try {
+            Gui_2 gui_2 = new Gui_2();
+            gui_2.setVisible(true);
+            gui_2.setLocationRelativeTo(null);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
     private void jTextField1_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_horaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1_horaActionPerformed
 
-    private void jButton1_agregarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agregarUnidadesActionPerformed
-        String tipo = jComboBox1_eleccionNuevaRuta.getSelectedItem().toString();
-        if (tipo == "Tren") {
-            tren trenNuevo = new tren();
-            trenNuevo.setId(jTextField3_id.getText());
-            trenNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
-            trenNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
+    private void jButton1_modifcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_modifcarActionPerformed
 
-            operacionesColaborador agregar = new operacionesColaborador();
-            if (agregar.agregarUnidad(trenNuevo, tipo) == 1) {
-                JOptionPane.showMessageDialog(this, "Unidad insertado");
-            } else {
-                JOptionPane.showMessageDialog(this, "Unidad ya existe");
+// Se va a obtener la cadena nueva con el id y tipo ya declarado, se va a pasar al metodo modificarFichero para que se cambie en su txt respectivo
+        String id = jTextField3_id.getText();
+        String ruta = "Unidades.txt";
+        String lineaBorrar = "";
+        File file = new File(ruta);
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
             }
-        } else {
-            bus busNuevo = new bus();
-            busNuevo.setId(jTextField3_id.getText());
-            busNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
-            busNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
 
-            operacionesColaborador agregar = new operacionesColaborador();
-            if (agregar.agregarUnidad(busNuevo, tipo) == 1) {
-                JOptionPane.showMessageDialog(this, "Unidad insertada");
-            } else {
-                JOptionPane.showMessageDialog(this, "Unidad ya existe");
+            String cadena = "";
+
+            FileReader fileR = new FileReader(file);
+            BufferedReader buffReader = new BufferedReader(fileR);
+            while ((cadena = buffReader.readLine()) != null) {
+                if (cadena.split(",")[1].equalsIgnoreCase(id)) {
+                    lineaBorrar = cadena;
+                }
+                System.out.println(lineaBorrar);
             }
+            buffReader.close();
+            fileR.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error");
         }
-        jTextField3_id.setText("");
-        jTextField1_hora.setText("");
-        jTextField2_minutos.setText("");
-        
-    }//GEN-LAST:event_jButton1_agregarUnidadesActionPerformed
+        operacionesGerente op = new operacionesGerente();
+        String nuevaLinea = lineaBorrar.split(",")[0] + "," + lineaBorrar.split(",")[1] + "," + jComboBox2_rutas.getSelectedItem().toString() + ","
+                + jTextField1_hora.getText() + ":" + jTextField2_minutos.getText() + "," + "0";
+
+        op.ModificarFichero(lineaBorrar, nuevaLinea);
+        this.dispose();
+        try {
+            Gui_2 gui_2 = new Gui_2();
+            gui_2.setVisible(true);
+            gui_2.setLocationRelativeTo(null);
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_jButton1_modifcarActionPerformed
+
+    private void jTextField3_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3_idActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1_agregarUnidades;
+    private javax.swing.JButton jButton1_modifcar;
     private javax.swing.JButton jButton1_salir;
-    private javax.swing.JComboBox<String> jComboBox1_eleccionNuevaRuta;
     private javax.swing.JComboBox<String> jComboBox2_rutas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

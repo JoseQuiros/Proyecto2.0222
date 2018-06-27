@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import MetodosGerente.operacionesGerente;
 import USUARIOS.colaborador;
-
+import GUI.ModificarBusTren;
 /**
  *
  * @author Jose
@@ -99,6 +99,7 @@ public class Gui_2 extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         jButtonEliminar = new javax.swing.JButton();
         jButton1Salir = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,6 +130,13 @@ public class Gui_2 extends javax.swing.JFrame {
             }
         });
 
+        jButtonModificar.setText("Modificar");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,8 +146,10 @@ public class Gui_2 extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(124, 124, 124)
                 .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1Salir)
                 .addGap(16, 16, 16))
@@ -152,7 +162,8 @@ public class Gui_2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jButton1Salir))
+                    .addComponent(jButton1Salir)
+                    .addComponent(jButtonModificar))
                 .addContainerGap())
         );
 
@@ -180,14 +191,43 @@ public class Gui_2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fila");
 
         }
-
+      
 
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButton1SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        colaboradorGUI colaborador =new colaboradorGUI();
+        colaborador.setVisible(true);
+        colaborador.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1SalirActionPerformed
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+        // TODO add your handling code here:
+        
+        int fila = tabla.getSelectedRow();
+
+        String idUnidad ="";
+//                (tabla.getValueAt(fila, 0).toString()) + ",";
+
+        idUnidad = idUnidad + (tabla.getValueAt(fila, 1).toString());
+        
+    
+        String lineaBorrar = (tabla.getValueAt(fila, 0).toString()) + ",";
+
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 1).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 2).toString()) + ",";
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString() + ",");
+        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
+        ModificarBusTren mod= new ModificarBusTren(idUnidad,lineaBorrar);
+        System.out.println(lineaBorrar);
+            
+        mod.setVisible(true);
+        mod.setLocationRelativeTo(null);
+        this.dispose();
+      
+    }//GEN-LAST:event_jButtonModificarActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -205,6 +245,7 @@ public class Gui_2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Salir;
     private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonModificar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
