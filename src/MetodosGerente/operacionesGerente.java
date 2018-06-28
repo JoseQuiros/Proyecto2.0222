@@ -319,6 +319,10 @@ public class operacionesGerente implements operaciones {
     }
 
     public void generarReporteSemanal(String Satigualinea, String Snuevalinea) throws IOException {
+        /*
+        este metodo actualiza la informacion nueva al txt semanal , el cual recive dos String 
+        uno con la infromacion nueva y otra con la informacion vieja
+        */
         String ruta = "semanal.txt";
 
         File FficheroAntiguo = new File(ruta);
@@ -449,6 +453,10 @@ public class operacionesGerente implements operaciones {
     }
 
     public void generarReporteMensual(String Satigualinea, String Snuevalinea) {
+       /*
+        este metodo actualiza la informacion nueva al txt mensual , el cual recive dos String 
+        uno con la infromacion nueva y otra con la informacion vieja
+        */
         String ruta = "mensual.txt";
 
         File FficheroAntiguo = new File(ruta);
@@ -459,7 +467,7 @@ public class operacionesGerente implements operaciones {
             return;
         }
 
-        File FficheroNuevo = new File(FficheroAntiguo.getAbsolutePath() + ".tmp");//
+        File FficheroNuevo = new File(FficheroAntiguo.getAbsolutePath() + ".tmp");//se crea un temporal
 
         try {
             /*Si existe el fichero inical*/
