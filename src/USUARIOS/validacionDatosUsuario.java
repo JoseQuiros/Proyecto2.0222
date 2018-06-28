@@ -42,7 +42,7 @@ public class validacionDatosUsuario {
         return existe;
     }
     public boolean validarContraseña(String contraseña, String ruta){
-        boolean existeContraseña=false;//boolen existeContraseña cambia si se encuentra la contrasela 
+        boolean existeContraseña=false;//boolen existeContraseña cambia si se encuentra la contraseña 
         File file = new File(ruta);
 
         try {
@@ -60,7 +60,7 @@ public class validacionDatosUsuario {
                     }
                 }
             }
-            buffReader.close();
+            buffReader.close();//se los buffeReader 
             fileR.close();
         } catch (IOException e) {
         }
