@@ -78,6 +78,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1_nombreUsuario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1_nombreUsuarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2_contrase&#xf1;a">
       <Properties>
@@ -85,6 +88,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1_contrase&#xf1;a">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1_contrase&#xf1;aKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

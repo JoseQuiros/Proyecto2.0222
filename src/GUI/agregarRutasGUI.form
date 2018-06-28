@@ -98,11 +98,13 @@
     <Component class="javax.swing.JTextField" name="jTextField1_Inicio">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1_InicioActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1_InicioKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2_final">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2_finalActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2_finalKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1_salir">

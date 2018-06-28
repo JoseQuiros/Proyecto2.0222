@@ -46,9 +46,6 @@ public class Gui extends javax.swing.JFrame {
 
         modelo.addColumn("Telefono");
 
-
-     
-
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -87,7 +84,6 @@ public class Gui extends javax.swing.JFrame {
                 object[3] = cadena.split(",")[3];
 
                 object[4] = cadena.split(",")[4];
-
 
                 modelo.addRow(object);
             }
@@ -152,12 +148,24 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldSNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldSNombreKeyTyped(evt);
+            }
+        });
+
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setText("Usuario");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jTextFieldPUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPUsuarioKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Sexo");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -167,12 +175,23 @@ public class Gui extends javax.swing.JFrame {
         jLabel8.setText("Telefono");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jTextFieldTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefonoKeyTyped(evt);
+            }
+        });
+
         jLabel9.setText("Contraseña");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTextFieldContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContraseñaActionPerformed(evt);
+            }
+        });
+        jTextFieldContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldContraseñaKeyTyped(evt);
             }
         });
 
@@ -272,10 +291,7 @@ public class Gui extends javax.swing.JFrame {
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 3).toString()) + ",";
         lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 4).toString());
 
-
 //        lineaBorrar = lineaBorrar + (tabla.getValueAt(fila, 5).toString());
-
-
         operacionesGerente op = new operacionesGerente();
         op.eliminarEmpleado(lineaBorrar);
 
@@ -302,7 +318,6 @@ public class Gui extends javax.swing.JFrame {
         object[3] = jComboBoxSexo.getSelectedItem();
 
         object[4] = jTextFieldTelefono.getText();
-
 
         modelo.addRow(object);
         String ruta = "colaborador.txt";
@@ -349,6 +364,50 @@ public class Gui extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
+    private void jTextFieldSNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSNombreKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Solamente se aceptan letras");
+        }        // TODO add your handling code here:        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSNombreKeyTyped
+
+    private void jTextFieldPUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPUsuarioKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Solamente se aceptan letras");
+        }        // TODO add your handling code here:        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPUsuarioKeyTyped
+
+    private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Solamente numeros");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTelefonoKeyTyped
+
+    private void jTextFieldContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }
+    }//GEN-LAST:event_jTextFieldContraseñaKeyTyped
+
     private void limpiar() {
 
         jTextFieldPUsuario.setText("");
@@ -358,9 +417,8 @@ public class Gui extends javax.swing.JFrame {
 
         jTextFieldTelefono.setText("");
         jTextFieldContraseña.setText(" ");
-     
-    }
 
+    }
 
     //quitar main
     public static void main(String args[]) {
@@ -376,7 +434,6 @@ public class Gui extends javax.swing.JFrame {
         });
     }
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_salir;
