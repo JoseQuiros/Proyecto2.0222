@@ -1,0 +1,5 @@
+
+marvos,juan,12345,Masculino,598151
+juan,pedro,12345,Masculino,852
+juan,pedro,12345,Masculino,852
+jasson,romero, 12345,Masculino,852
