@@ -18,4 +18,5 @@ public interface operaciones {
     public void BorrarFichero(File Ffichero);
 
     public void eliminarEmpleado(String nombreABorrar);
+    
 }

@@ -156,12 +156,10 @@
                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jButton_tiquetesVendidos" pref="169" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButton1_modificarUnidades" alignment="0" pref="169" max="32767" attributes="0"/>
-                          <Component id="jButton1_agregarRuta" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                          <Component id="jButton1_agregarBusOTren" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jButton1_modificarUnidades" alignment="0" pref="169" max="32767" attributes="0"/>
+                      <Component id="jButton1_agregarRuta" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel3" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                      <Component id="jButton1_agregarBusOTren" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="92" max="32767" attributes="0"/>
               </Group>

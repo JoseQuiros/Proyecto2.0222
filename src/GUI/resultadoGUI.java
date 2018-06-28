@@ -28,8 +28,7 @@ public class resultadoGUI extends javax.swing.JFrame {
         switch (tipoReporte) {
             case 1:
                 String[] columnasDiario = {
-                    "Fecha:",
-                    "Ruta:",
+                    "Día:",
                     "Tiquetes Vendidos"
                 };
 
@@ -66,7 +65,6 @@ public class resultadoGUI extends javax.swing.JFrame {
                         if (cadena.indexOf(",") != -1) {
                             datosDiario[filasDiario][0] = cadena.split(",")[0];
                             datosDiario[filasDiario][1] = cadena.split(",")[1];
-                            datosDiario[filasDiario][2] = cadena.split(",")[2];
                         }
                         filasDiario++;
                     }
@@ -81,8 +79,7 @@ public class resultadoGUI extends javax.swing.JFrame {
 
             case 2:
                 String[] columnasSemanal = {
-                    "Semana:",
-                    "Ruta:",
+                    "Días:",
                     "Tiquetes Vendidos"
                 };
                 //String rutaArchivo = "Diairio.txt";
@@ -120,7 +117,6 @@ public class resultadoGUI extends javax.swing.JFrame {
                         if (cadena.indexOf(",") != -1) {
                             datosSemanal[filasSemanal][0] = cadena.split(",")[0];
                             datosSemanal[filasSemanal][1] = cadena.split(",")[1];
-                            datosSemanal[filasSemanal][2] = cadena.split(",")[2];
                         }
                         filasSemanal++;
                     }
@@ -135,7 +131,6 @@ public class resultadoGUI extends javax.swing.JFrame {
             case 3:
                 String[] columnasMensual = {
                     "Mes:",
-                    "Ruta:",
                     "Tiquetes Vendidos"
                 };
                 //String rutaArchivo = "Diairio.txt";
@@ -173,7 +168,6 @@ public class resultadoGUI extends javax.swing.JFrame {
                         if (cadena.indexOf(",") != -1) {
                             datosMensual[filaMensual][0] = cadena.split(",")[0];
                             datosMensual[filaMensual][1] = cadena.split(",")[1];
-                            datosMensual[filaMensual][2] = cadena.split(",")[2];
                         }
                         filaMensual++;
                     }

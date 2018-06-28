@@ -18,8 +18,11 @@ public class agregarCliente extends javax.swing.JFrame {
     /**
      * Creates new form agregarCliente
      */
-    public agregarCliente() {
+    int op = 0;
+
+    public agregarCliente(int opcion) {
         initComponents();
+        op = opcion;
     }
 
     /**
@@ -123,9 +126,16 @@ public class agregarCliente extends javax.swing.JFrame {
 
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
-        colaboradorGUI colaborador =new colaboradorGUI();
-        colaborador.setVisible(true);
-        colaborador.setLocationRelativeTo(null);
+        if (op == 1) {
+            menuLogin login = new menuLogin();
+            login.setVisible(true);
+            login.setLocationRelativeTo(null);
+        } else {
+            colaboradorGUI colaborador = new colaboradorGUI();
+            colaborador.setVisible(true);
+            colaborador.setLocationRelativeTo(null);
+        }
+
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
     /**

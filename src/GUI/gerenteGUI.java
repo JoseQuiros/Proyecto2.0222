@@ -213,21 +213,21 @@ public class gerenteGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jRadioButton1.isSelected()) {
             int tipoReporte = 1;
-            String rutaArchivo = "Diairio.txt";
+            String rutaArchivo = "diario.txt";
             resultadoGUI resul = new resultadoGUI(tipoReporte, rutaArchivo);
             resul.setVisible(true);
             resul.setLocationRelativeTo(null);
         }
         if (jRadioButton2.isSelected()) {
             int tipoReporte = 2;
-            String rutaArchivo = "Semanal.txt";
+            String rutaArchivo = "semanal.txt";
             resultadoGUI resul = new resultadoGUI(tipoReporte, rutaArchivo);
             resul.setVisible(true);
             resul.setLocationRelativeTo(null);
         }
         if (jRadioButton3.isSelected()) {
             int tipoReporte = 3;
-            String rutaArchivo = "Mensual.txt";
+            String rutaArchivo = "mensual.txt";
             resultadoGUI resul = new resultadoGUI(tipoReporte, rutaArchivo);
             resul.setVisible(true);
             resul.setLocationRelativeTo(null);
