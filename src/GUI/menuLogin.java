@@ -7,6 +7,7 @@ package GUI;
 
 import USUARIOS.validacionDatos;
 import USUARIOS.validacionDatosUsuario;
+import javax.swing.JOptionPane;
 import vehiculo.bus;
 
 /**
@@ -16,8 +17,8 @@ import vehiculo.bus;
 public class menuLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form menuLogin
-     * En esta ventana se va a redirigir dependiendo los datos que han sido digitados
+     * Creates new form menuLogin En esta ventana se va a redirigir dependiendo
+     * los datos que han sido digitados
      */
     public menuLogin() {
         initComponents();
@@ -77,11 +78,21 @@ public class menuLogin extends javax.swing.JFrame {
                 usuarioTextFieldActionPerformed(evt);
             }
         });
+        usuarioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                usuarioTextFieldKeyTyped(evt);
+            }
+        });
         getContentPane().add(usuarioTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, -1));
 
         contraseñaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñaTextFieldActionPerformed(evt);
+            }
+        });
+        contraseñaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contraseñaTextFieldKeyTyped(evt);
             }
         });
         getContentPane().add(contraseñaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 130, -1));
@@ -160,7 +171,7 @@ public class menuLogin extends javax.swing.JFrame {
 
         }
         validacionDatosUsuario validacionUsuario = new validacionDatosUsuario();///tanto colaborador como cliente usan el mismo metodo
-                                                                                //lo que cambia es que se le pasa por parametro el txt clientes
+        //lo que cambia es que se le pasa por parametro el txt clientes
         if (validacionUsuario.validarUsuario(nombreUsuario, "Clientes.txt") == true) {
             System.out.println("usuario existe");
             if (validacionUsuario.validarContraseña(contraseña, "Clientes.txt") == true) {
@@ -188,12 +199,34 @@ public class menuLogin extends javax.swing.JFrame {
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        int opcion=1;//con esta variable el programa va a saber de donde a sido accesada la ventana por si se cierra,
-                        //que vuelva a abrir la ventana de donde a sido llamada
+        int opcion = 1;//con esta variable el programa va a saber de donde a sido accesada la ventana por si se cierra,
+        //que vuelva a abrir la ventana de donde a sido llamada
         agregarCliente nuevoCliente = new agregarCliente(opcion);//para ello se le pasa por parametro la variable opcion
         nuevoCliente.setVisible(true);
         nuevoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_botonRegistroActionPerformed
+
+    private void usuarioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioTextFieldKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Solamente se aceptan letras");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioTextFieldKeyTyped
+
+    private void contraseñaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñaTextFieldKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }
+    }//GEN-LAST:event_contraseñaTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

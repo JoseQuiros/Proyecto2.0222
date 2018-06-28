@@ -67,9 +67,9 @@ public class ModificarBusTren extends javax.swing.JFrame {
         jButton1_salir = new javax.swing.JButton();
         jComboBox2_rutas = new javax.swing.JComboBox<>();
         jLabel3_hora = new javax.swing.JLabel();
-        jTextField1_hora = new javax.swing.JTextField();
+        jTextField1_horaDos = new javax.swing.JTextField();
         jLabel3_puntosHora = new javax.swing.JLabel();
-        jTextField2_minutos = new javax.swing.JTextField();
+        jTextField2_minutosDos = new javax.swing.JTextField();
         jLabel3_ejemploHora = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -84,6 +84,11 @@ public class ModificarBusTren extends javax.swing.JFrame {
         jTextField3_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3_idActionPerformed(evt);
+            }
+        });
+        jTextField3_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3_idKeyTyped(evt);
             }
         });
 
@@ -108,14 +113,25 @@ public class ModificarBusTren extends javax.swing.JFrame {
         jLabel3_hora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_hora.setText("Hora asignada:");
 
-        jTextField1_hora.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1_horaDos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1_horaActionPerformed(evt);
+                jTextField1_horaDosActionPerformed(evt);
+            }
+        });
+        jTextField1_horaDos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_horaDosKeyTyped(evt);
             }
         });
 
         jLabel3_puntosHora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_puntosHora.setText(":");
+
+        jTextField2_minutosDos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2_minutosDosKeyTyped(evt);
+            }
+        });
 
         jLabel3_ejemploHora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_ejemploHora.setText("    hh      :    mm");
@@ -146,11 +162,11 @@ public class ModificarBusTren extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel3_ejemploHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1_horaDos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel3_puntosHora)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jTextField2_minutosDos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
@@ -166,8 +182,8 @@ public class ModificarBusTren extends javax.swing.JFrame {
                     .addComponent(jComboBox2_rutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1_hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2_minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1_horaDos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2_minutosDos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3_puntosHora)
                     .addComponent(jLabel3_hora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -215,9 +231,9 @@ public class ModificarBusTren extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1_salirActionPerformed
 
-    private void jTextField1_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_horaActionPerformed
+    private void jTextField1_horaDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_horaDosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1_horaActionPerformed
+    }//GEN-LAST:event_jTextField1_horaDosActionPerformed
 
     private void jButton1_modifcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_modifcarActionPerformed
 
@@ -227,38 +243,49 @@ public class ModificarBusTren extends javax.swing.JFrame {
         String lineaBorrar = "";
         File file = new File(ruta);
         try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+            if (Integer.parseInt(jTextField1_horaDos.getText()) <= 23 && Integer.parseInt(jTextField2_minutosDos.getText()) <= 59) {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
 
-            String cadena = "";
+                    String cadena = "";
 
-            FileReader fileR = new FileReader(file);
-            BufferedReader buffReader = new BufferedReader(fileR);
-            while ((cadena = buffReader.readLine()) != null) {
-                if (cadena.split(",")[1].equalsIgnoreCase(id)) {
-                    lineaBorrar = cadena;
+                    FileReader fileR = new FileReader(file);
+                    BufferedReader buffReader = new BufferedReader(fileR);
+                    while ((cadena = buffReader.readLine()) != null) {
+                        if (cadena.split(",")[1].equalsIgnoreCase(id)) {
+                            lineaBorrar = cadena;
+                        }
+                        System.out.println(lineaBorrar);
+                    }
+                    buffReader.close();
+                    fileR.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("Error");
                 }
-                System.out.println(lineaBorrar);
-            }
-            buffReader.close();
-            fileR.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error");
-        }
-        operacionesGerente op = new operacionesGerente();
-        String nuevaLinea = lineaBorrar.split(",")[0] + "," + lineaBorrar.split(",")[1] + "," + jComboBox2_rutas.getSelectedItem().toString() + ","
-                + jTextField1_hora.getText() + ":" + jTextField2_minutos.getText() + "," + "0";
+                operacionesGerente op = new operacionesGerente();
+                String nuevaLinea = lineaBorrar.split(",")[0] + "," + lineaBorrar.split(",")[1] + "," + jComboBox2_rutas.getSelectedItem().toString() + ","
+                        + jTextField1_horaDos.getText() + ":" + jTextField2_minutosDos.getText() + "," + "0";
 
-        op.ModificarFichero(lineaBorrar, nuevaLinea);
-        this.dispose();
-        try {
-            Gui_2 gui_2 = new Gui_2();
-            gui_2.setVisible(true);
-            gui_2.setLocationRelativeTo(null);
+                op.ModificarFichero(lineaBorrar, nuevaLinea);
+                this.dispose();
+                try {
+                    Gui_2 gui_2 = new Gui_2();
+                    gui_2.setVisible(true);
+                    gui_2.setLocationRelativeTo(null);
+                } catch (Exception e) {
+                }
+            } else {
+                jTextField1_horaDos.setText("");
+                jTextField2_minutosDos.setText("");
+                JOptionPane.showMessageDialog(null, "Debe ingresar una hora correcta");
+
+            }
         } catch (Exception e) {
         }
+
 
     }//GEN-LAST:event_jButton1_modifcarActionPerformed
 
@@ -266,7 +293,42 @@ public class ModificarBusTren extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3_idActionPerformed
 
+    private void jTextField3_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3_idKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3_idKeyTyped
+
+    private void jTextField1_horaDosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_horaDosKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < '0' || c > '9') && (jTextField1_horaDos.getText().length() == 2)) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }
+    }//GEN-LAST:event_jTextField1_horaDosKeyTyped
+
+    private void jTextField2_minutosDosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2_minutosDosKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < '0' || c > '9') && (jTextField2_minutosDos.getText().length() == 2)) {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2_minutosDosKeyTyped
+
     /**
+     *
      * @param args the command line arguments
      */
 
@@ -281,8 +343,8 @@ public class ModificarBusTren extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3_puntosHora;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1_hora;
-    private javax.swing.JTextField jTextField2_minutos;
+    private javax.swing.JTextField jTextField1_horaDos;
+    private javax.swing.JTextField jTextField2_minutosDos;
     private javax.swing.JTextField jTextField3_id;
     // End of variables declaration//GEN-END:variables
 }

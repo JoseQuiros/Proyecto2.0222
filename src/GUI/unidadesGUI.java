@@ -84,6 +84,12 @@ public class unidadesGUI extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ruta asignada:");
 
+        jTextField3_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3_idKeyTyped(evt);
+            }
+        });
+
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Id :");
@@ -110,9 +116,20 @@ public class unidadesGUI extends javax.swing.JFrame {
                 jTextField1_horaActionPerformed(evt);
             }
         });
+        jTextField1_hora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_horaKeyTyped(evt);
+            }
+        });
 
         jLabel3_puntosHora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_puntosHora.setText(":");
+
+        jTextField2_minutos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2_minutosKeyTyped(evt);
+            }
+        });
 
         jLabel3_ejemploHora.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3_ejemploHora.setText("    hh      :    mm");
@@ -214,7 +231,7 @@ public class unidadesGUI extends javax.swing.JFrame {
 
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
-        colaboradorGUI colaborador =new colaboradorGUI();
+        colaboradorGUI colaborador = new colaboradorGUI();
         colaborador.setVisible(true);
         colaborador.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_salirActionPerformed
@@ -224,37 +241,88 @@ public class unidadesGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1_horaActionPerformed
 
     private void jButton1_agregarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agregarUnidadesActionPerformed
-        String tipo = jComboBox1_eleccionNuevaRuta.getSelectedItem().toString();
-        if (tipo == "Tren") {
-            tren trenNuevo = new tren();
-            trenNuevo.setId(jTextField3_id.getText());
-            trenNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
-            trenNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
+        try {
+            if (Integer.parseInt(jTextField1_hora.getText()) <= 23 && Integer.parseInt(jTextField2_minutos.getText()) <= 59) {
+                String tipo = jComboBox1_eleccionNuevaRuta.getSelectedItem().toString();
+                if (tipo == "Tren") {
+                    tren trenNuevo = new tren();
+                    trenNuevo.setId(jTextField3_id.getText());
+                    trenNuevo.setHora(jTextField1_hora.getText() + ":" + jTextField2_minutos.getText());
+                    trenNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
 
-            operacionesColaborador agregar = new operacionesColaborador();
-            if (agregar.agregarUnidad(trenNuevo, tipo) == 1) {
-                JOptionPane.showMessageDialog(this, "Unidad insertado");
-            } else {
-                JOptionPane.showMessageDialog(this, "Unidad ya existe");
-            }
-        } else {
-            bus busNuevo = new bus();
-            busNuevo.setId(jTextField3_id.getText());
-            busNuevo.setHora(jTextField1_hora.getText()+ ":" + jTextField2_minutos.getText());
-            busNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
+                    operacionesColaborador agregar = new operacionesColaborador();
+                    if (agregar.agregarUnidad(trenNuevo, tipo) == 1) {
+                        JOptionPane.showMessageDialog(this, "Unidad insertado");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Unidad ya existe");
+                    }
+                } else {
+                    bus busNuevo = new bus();
+                    busNuevo.setId(jTextField3_id.getText());
+                    busNuevo.setHora(jTextField1_hora.getText() + ":" + jTextField2_minutos.getText());
+                    busNuevo.setRutaAsignada(jComboBox2_rutas.getSelectedItem().toString());
 
-            operacionesColaborador agregar = new operacionesColaborador();
-            if (agregar.agregarUnidad(busNuevo, tipo) == 1) {
-                JOptionPane.showMessageDialog(this, "Unidad insertada");
+                    operacionesColaborador agregar = new operacionesColaborador();
+                    if (agregar.agregarUnidad(busNuevo, tipo) == 1) {
+                        JOptionPane.showMessageDialog(this, "Unidad insertada");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Unidad ya existe");
+                    }
+                }
+                jTextField3_id.setText("");
+                jTextField1_hora.setText("");
+                jTextField2_minutos.setText("");
             } else {
-                JOptionPane.showMessageDialog(this, "Unidad ya existe");
+                JOptionPane.showMessageDialog(null, "Debe ingresar una hora correcta");
+                jTextField1_hora.setText("");
+                jTextField2_minutos.setText("");
             }
+
+        } catch (Exception e) {
         }
-        jTextField3_id.setText("");
-        jTextField1_hora.setText("");
-        jTextField2_minutos.setText("");
-        
+
+
     }//GEN-LAST:event_jButton1_agregarUnidadesActionPerformed
+
+    private void jTextField3_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3_idKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3_idKeyTyped
+
+    private void jTextField1_horaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_horaKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < '0' || c > '9')) {
+                evt.consume();
+            }
+            if (jTextField1_hora.getText().length() == 2) {
+                evt.consume();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_horaKeyTyped
+
+    private void jTextField2_minutosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2_minutosKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < '0' || c > '9')) {
+                evt.consume();
+            }
+            if (jTextField2_minutos.getText().length() == 2) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2_minutosKeyTyped
 
     /**
      * @param args the command line arguments

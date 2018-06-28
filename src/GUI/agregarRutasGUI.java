@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import MetodosColaborador.operacionesColaborador;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,10 +63,20 @@ public class agregarRutasGUI extends javax.swing.JFrame {
                 jTextField1_InicioActionPerformed(evt);
             }
         });
+        jTextField1_Inicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_InicioKeyTyped(evt);
+            }
+        });
 
         jTextField2_final.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2_finalActionPerformed(evt);
+            }
+        });
+        jTextField2_final.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2_finalKeyTyped(evt);
             }
         });
 
@@ -145,10 +156,32 @@ public class agregarRutasGUI extends javax.swing.JFrame {
 
     private void jButton1_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salirActionPerformed
         this.dispose();
-        colaboradorGUI colaborador =new colaboradorGUI();
+        colaboradorGUI colaborador = new colaboradorGUI();
         colaborador.setVisible(true);
         colaborador.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_salirActionPerformed
+
+    private void jTextField1_InicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_InicioKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_InicioKeyTyped
+
+    private void jTextField2_finalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2_finalKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2_finalKeyTyped
 
     /**
      * @param args the command line arguments

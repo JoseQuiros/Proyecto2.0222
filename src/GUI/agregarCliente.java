@@ -46,7 +46,19 @@ public class agregarCliente extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre Usuario");
 
+        jTextField1_nombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_nombreUsuarioKeyTyped(evt);
+            }
+        });
+
         jLabel2_contraseña.setText("Contraseña");
+
+        jTextField1_contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_contraseñaKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Ingresar nuevo cliente");
 
@@ -137,6 +149,28 @@ public class agregarCliente extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1_salirActionPerformed
+
+    private void jTextField1_nombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_nombreUsuarioKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos ni numeros");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_nombreUsuarioKeyTyped
+
+    private void jTextField1_contraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_contraseñaKeyTyped
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pueden ingresar simbolos");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_contraseñaKeyTyped
 
     /**
      * @param args the command line arguments
