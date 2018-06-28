@@ -128,6 +128,7 @@ public class menuLogin extends javax.swing.JFrame {
 
     private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         validacionDatos validacion = new validacionDatos();
         String nombreUsuario = usuarioTextField.getText();
         String contraseña = contraseñaTextField.getText();
@@ -182,7 +183,9 @@ public class menuLogin extends javax.swing.JFrame {
     }
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
         // TODO add your handling code here:
-        agregarCliente nuevoCliente = new agregarCliente();
+        this.dispose();
+        int opcion=1;
+        agregarCliente nuevoCliente = new agregarCliente(opcion);
         nuevoCliente.setVisible(true);
         nuevoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_botonRegistroActionPerformed

@@ -18,9 +18,9 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        menuLogin main=new menuLogin();
+        menuLogin main = new menuLogin();
         main.setVisible(true);
-        
+
     }
-    
+
 }

@@ -214,7 +214,8 @@ public class colaboradorGUI extends javax.swing.JFrame {
 
     private void jButton1_ingresarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ingresarClienteActionPerformed
         this.dispose();
-        agregarCliente nuevoCliente = new agregarCliente();
+        int opcion=2;
+        agregarCliente nuevoCliente = new agregarCliente(opcion);
         nuevoCliente.setVisible(true);
         nuevoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1_ingresarClienteActionPerformed

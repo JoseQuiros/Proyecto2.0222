@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 
 import tiquetes.operacionesTiquetes;
 
-
 /**
  *
  * @author Jasson
@@ -231,7 +230,7 @@ public class venderGUI extends javax.swing.JFrame {
         if (opcion == 1) {
             datos = jComboBox2_buses.getSelectedItem().toString();
             operacionesTiquetes.obtenerdatos(datos);
-            
+
         } else {
             if (opcion == 2) {
                 datos = jComboBox1_trenes.getSelectedItem().toString();
@@ -252,8 +251,8 @@ public class venderGUI extends javax.swing.JFrame {
             //Aqui lo que se hace es obtener una cadena de la linea en la que el numero de asientos decrece
             // Se obtiene una cadena que es la  que se va a modificar en el archivo de texto
             while ((cadena = buffReader.readLine()) != null) {
-                if (cadena.split(",")[1].equalsIgnoreCase(datos.split(",")[0])) {
 
+                if (cadena.split(",")[1].equalsIgnoreCase(datos.split(",")[0])) {
                     int enteroAsiento = Integer.parseInt(cadena.split(",")[4]);
                     String StringAsientoMod = cadena.split(",")[4];
                     System.out.println(StringAsientoMod);
@@ -277,17 +276,15 @@ public class venderGUI extends javax.swing.JFrame {
                     System.out.println(nuevaCadena1);
                     System.out.println(lineaBorrar);
                 }
-
-//        op.modificarLinea(lineaBorrar, nuevaCadena1);
             }
             fileR.close();
             buffReader.close();
             operacionesGerente op = new operacionesGerente();
             op.ModificarFichero(lineaBorrar, nuevaCadena1);
-
-            JOptionPane.showMessageDialog(null,"Su tiquete se vendio satisfactoriamente!!");
+            
+            
+            JOptionPane.showMessageDialog(null, "Su tiquete se vendio satisfactoriamente!!");
             this.dispose();
-
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
