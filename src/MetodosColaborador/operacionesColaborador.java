@@ -28,8 +28,8 @@ public class operacionesColaborador implements operacionColaborador {
 
     @Override
     public int agregarCliente(cliente nuevoCliente) {
-        String ruta = "Clientes.txt";
-        File file = new File(ruta);
+        String ruta = "Clientes.txt";// se guarda la ruta de cliente en una variable
+        File file = new File(ruta);// se crea un archivo con la ruta del string
         int insertado = 0;
 
         System.out.println("Creamos un FIleWriter");
@@ -37,19 +37,19 @@ public class operacionesColaborador implements operacionColaborador {
         try {
             //crear el archivo en disco duro, 
             if (!file.exists()) {
-                file.createNewFile();
+                file.createNewFile();// si el archivo no existe se crea 
             }
 
-            flWriter = new FileWriter(file.getAbsoluteFile(), true);
+            flWriter = new FileWriter(file.getAbsoluteFile(), true);// para escribir en el archivo 
 
-            BufferedWriter brWriter = new BufferedWriter(flWriter);
+            BufferedWriter brWriter = new BufferedWriter(flWriter);// lectura del archivo
 
-            if (!buscarCliente(nuevoCliente.getUsuario())) {
+            if (!buscarCliente(nuevoCliente.getUsuario())) {// si el cliente no existe se crea un nuevo cliente con su respectivo usuario y contraseña
                 brWriter.write(nuevoCliente.getUsuario() + ","
                         + nuevoCliente.getContraseña()
                 );
                 brWriter.newLine();
-                insertado = 1;
+                insertado = 1;// contador de clientes
             }
 
             brWriter.close();
@@ -68,8 +68,8 @@ public class operacionesColaborador implements operacionColaborador {
         return insertado;
     }
 
-    public void eliminarCliente(String lineaBorrar) {
-      String ruta="Clientes.txt";
+    public void eliminarCliente(String lineaBorrar) {// metodo para eliminar cliente, se le pasa por parametro la linea respectiva con cliente,contraseña en la cadena
+        String ruta = "Clientes.txt";//inicializa la ruta
         try {
             File inFile = new File(ruta);
 
@@ -81,7 +81,7 @@ public class operacionesColaborador implements operacionColaborador {
 
             //Crea el nuevo archivo que luego será renombrado como el nombre del archivo original.
             System.out.println("se crea un arhivo cliente");
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");//
+            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");//se crea un archivo temporal 
             BufferedReader br = new BufferedReader(new FileReader(ruta));
             PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
             String line = null;
@@ -105,28 +105,27 @@ public class operacionesColaborador implements operacionColaborador {
             pw.close();
             br.close();
 //          
-   /*Obtengo el nombre del fichero inicial*/
-                String SnomAntiguo=inFile.getName();
-                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
-                /*Borro el fichero inicial*/
-                BorrarFichero(inFile);
-                /*renombro el nuevo fichero con el nombre del fichero inicial*/
-                tempFile.renameTo(inFile);
-                
-                /*Cierro el flujo de lectura*/
-                br.close();
-                
+            /*Obtengo el nombre del fichero inicial*/
+            String SnomAntiguo = inFile.getName();
+            System.out.println("nombre del fichero inicial" + SnomAntiguo);
+            /*Borro el fichero inicial*/
+            BorrarFichero(inFile);
+            /*renombro el nuevo fichero con el nombre del fichero inicial*/
+            tempFile.renameTo(inFile);
+
+            /*Cierro el flujo de lectura*/
+            br.close();
+
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        
-     
+
     }
+
     public void eliminarBus(String lineaBorrar) {
-      String ruta="Unidades.txt";
+        String ruta = "Unidades.txt";//se inicializa la ruta respectiva
         try {
             File inFile = new File(ruta);
 
@@ -162,27 +161,26 @@ public class operacionesColaborador implements operacionColaborador {
             pw.close();
             br.close();
 //          
-   /*Obtengo el nombre del fichero inicial*/
-                String SnomAntiguo=inFile.getName();
-                System.out.println("nombre del fichero inicial"+ SnomAntiguo);
-                /*Borro el fichero inicial*/
-                BorrarFichero(inFile);
-                /*renombro el nuevo fichero con el nombre del fichero inicial*/
-                tempFile.renameTo(inFile);
-                
-                /*Cierro el flujo de lectura*/
-                br.close();
-                
+            /*Obtengo el nombre del fichero inicial*/
+            String SnomAntiguo = inFile.getName();
+            System.out.println("nombre del fichero inicial" + SnomAntiguo);
+            /*Borro el fichero inicial*/
+            BorrarFichero(inFile);
+            /*renombro el nuevo fichero con el nombre del fichero inicial*/
+            tempFile.renameTo(inFile);
+
+            /*Cierro el flujo de lectura*/
+            br.close();
+
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        
-     
+
     }
-      public void BorrarFichero(File Ffichero) {
+
+    public void BorrarFichero(File Ffichero) {
         try {
             /*Si existe el fichero*/
             if (Ffichero.exists()) {
@@ -200,7 +198,7 @@ public class operacionesColaborador implements operacionColaborador {
 
     @Override
     public boolean buscarCliente(String nombre) {
-        String ruta = "Clientes.txt";
+        String ruta = "Clientes.txt";//se inicializa la ruta
         File file = new File(ruta);
         boolean encontrado = false;
 
@@ -212,9 +210,9 @@ public class operacionesColaborador implements operacionColaborador {
             String cadena = "";
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
-            while ((cadena = buffReader.readLine()) != null) {
+            while ((cadena = buffReader.readLine()) != null) {//busca linea por linea
                 if (cadena.indexOf(",") != -1) {
-                    if (cadena.split(",")[0].equalsIgnoreCase(nombre)) {
+                    if (cadena.split(",")[0].equalsIgnoreCase(nombre)) {// si la linea es igual a la cadena(nombre);
                         encontrado = true;
                     }
                 }
@@ -226,17 +224,17 @@ public class operacionesColaborador implements operacionColaborador {
             System.out.println("Error");
         }
 
-        return encontrado;
+        return encontrado;// se retorna true or false 
     }
 
     @Override
     public boolean buscarRuta(String rutaIngresada) {
-        String ruta = "RutasBusTren.txt";
+        String ruta = "RutasBusTren.txt";// se inicializa la ruta 
         File file = new File(ruta);
         boolean encontrado = false;
 
         try {
-            if (!file.exists()) {
+            if (!file.exists()) {// si el archivo no existe se crea
                 file.createNewFile();
             }
 
@@ -244,7 +242,7 @@ public class operacionesColaborador implements operacionColaborador {
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
-                if (cadena.equalsIgnoreCase(rutaIngresada)) {
+                if (cadena.equalsIgnoreCase(rutaIngresada)) {//se busca la ruta
                     encontrado = true;
                 }
                 System.out.println(cadena);
@@ -259,6 +257,8 @@ public class operacionesColaborador implements operacionColaborador {
     }
 
     @Override
+
+    //se pasa por parametro una nueva ruta la cual se va agregar en el archivo RutasBusTren
     public int agregarRuta(String nuevaRuta) {
         String ruta = "RutasBusTren.txt";
         int insertado = 0;
@@ -303,6 +303,8 @@ public class operacionesColaborador implements operacionColaborador {
     public void eliminarCliente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    //metodo no utilizado, ignore XXX
     public int agregarUnidad(Object object, String tipo) {
         int opcion = 0;
         int insertado = 0;
@@ -374,7 +376,7 @@ public class operacionesColaborador implements operacionColaborador {
                                 + nuevoBus.getRutaAsignada() + ","
                                 + nuevoBus.getHora() + ","
                                 + nuevoBus.getAsientosOcupados());
-                                
+
                         brWriter.newLine();
                         insertado = 1;
                     }
@@ -399,6 +401,7 @@ public class operacionesColaborador implements operacionColaborador {
         }
         return insertado;
     }
+//metodo no utilizado
 
     @Override
     public boolean buscarUnidad(String id) {
@@ -430,6 +433,5 @@ public class operacionesColaborador implements operacionColaborador {
         return encontrado;
 
     }
-    
 
 }
