@@ -141,7 +141,7 @@ public class menuLogin extends javax.swing.JFrame {
     private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
         // TODO add your handling code here:
         //se llama a validacion de datos el cual va a verificar si los datos con de un colaborador, cliente o del gerente
-        this.dispose();
+        //this.dispose();
         validacionDatos validacion = new validacionDatos();
         String nombreUsuario = usuarioTextField.getText();//se extrae lo que tiene el textfield de usuario y se pone en una variable
         String contraseña = contraseñaTextField.getText();//igualmente con contraseña
@@ -180,6 +180,7 @@ public class menuLogin extends javax.swing.JFrame {
                 venta.setVisible(true);
                 venta.setLocationRelativeTo(null);
                 limpiar();
+                this.dispose();
             } else {
                 System.out.println("EL usuario existe pero la contraseña es incorrecta");
             }
