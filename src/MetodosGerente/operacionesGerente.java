@@ -225,6 +225,7 @@ public class operacionesGerente implements operaciones {
             System.out.println("Cerramos conexion");
             leerReporteSemanal(fecha);
             brWriter.close();
+            flWriter.close();
 
         } catch (IOException e) {
             System.out.println("Error");
