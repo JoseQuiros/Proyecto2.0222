@@ -17,6 +17,7 @@ public class menuLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form menuLogin
+     * En esta ventana se va a redirigir dependiendo los datos que han sido digitados
      */
     public menuLogin() {
         initComponents();
@@ -128,10 +129,11 @@ public class menuLogin extends javax.swing.JFrame {
 
     private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
         // TODO add your handling code here:
+        //se llama a validacion de datos el cual va a verificar si los datos con de un colaborador, cliente o del gerente
         this.dispose();
         validacionDatos validacion = new validacionDatos();
-        String nombreUsuario = usuarioTextField.getText();
-        String contraseña = contraseñaTextField.getText();
+        String nombreUsuario = usuarioTextField.getText();//se extrae lo que tiene el textfield de usuario y se pone en una variable
+        String contraseña = contraseñaTextField.getText();//igualmente con contraseña
         if (nombreUsuario.equalsIgnoreCase("rolo")) {
             if (contraseña.equals("programacion")) {
                 gerenteGUI gerente = new gerenteGUI();
@@ -141,10 +143,10 @@ public class menuLogin extends javax.swing.JFrame {
                 limpiar();
             }
         }
-        if (validacion.validarUsuario(nombreUsuario, "colaborador.txt") == true) {
+        if (validacion.validarUsuario(nombreUsuario, "colaborador.txt") == true) {//validacion de usuario retorna un boolean y se encontro retorna true
             System.out.println("usuario existe");
-            if (validacion.validarContraseña(contraseña, "colaborador.txt") == true) {
-                System.out.println("contraseña correcta");
+            if (validacion.validarContraseña(contraseña, "colaborador.txt") == true) {//si se encontro el usuario pasa a verificar si la contraseña es la correcta
+                System.out.println("contraseña correcta");//si entra en ete if significa que encontro el usuario con us contraseña correctamente
                 colaboradorGUI cola = new colaboradorGUI();
                 cola.setVisible(true);
                 cola.setLocationRelativeTo(null);
@@ -157,7 +159,8 @@ public class menuLogin extends javax.swing.JFrame {
             System.out.println("Usuario no existe en colaborador.txt");
 
         }
-        validacionDatosUsuario validacionUsuario = new validacionDatosUsuario();
+        validacionDatosUsuario validacionUsuario = new validacionDatosUsuario();///tanto colaborador como cliente usan el mismo metodo
+                                                                                //lo que cambia es que se le pasa por parametro el txt clientes
         if (validacionUsuario.validarUsuario(nombreUsuario, "Clientes.txt") == true) {
             System.out.println("usuario existe");
             if (validacionUsuario.validarContraseña(contraseña, "Clientes.txt") == true) {
@@ -177,15 +180,16 @@ public class menuLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_iniciarSesionActionPerformed
     public void limpiar() {
-        contraseñaTextField.setText("");
+        contraseñaTextField.setText("");//poner los campos vacios
         usuarioTextField.setText("");
 
     }
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        int opcion=1;
-        agregarCliente nuevoCliente = new agregarCliente(opcion);
+        int opcion=1;//con esta variable el programa va a saber de donde a sido accesada la ventana por si se cierra,
+                        //que vuelva a abrir la ventana de donde a sido llamada
+        agregarCliente nuevoCliente = new agregarCliente(opcion);//para ello se le pasa por parametro la variable opcion
         nuevoCliente.setVisible(true);
         nuevoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_botonRegistroActionPerformed
