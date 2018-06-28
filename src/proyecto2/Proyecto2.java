@@ -20,7 +20,7 @@ public class Proyecto2 {
         // TODO code application logic here
         menuLogin main = new menuLogin();
         main.setVisible(true);
-
+        //se llama a  la ventana principal
     }
 
 }
