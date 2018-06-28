@@ -107,6 +107,9 @@ public class operacionesGerente implements operaciones {
     }
 
     public void ModificarFichero(String Satigualinea, String Snuevalinea) {
+        /**
+         * este metodo fue llamado por venderGUI el cual este va a llamar a leerReporteDiario
+         * */
         String ruta = "Unidades.txt";
 
         File FficheroAntiguo = new File(ruta);
@@ -185,20 +188,22 @@ public class operacionesGerente implements operaciones {
     }
 
     public void agregarReportesDiarios(int cantidadTiquetes) {
-
-        Calendar c = new GregorianCalendar();
-        int dia = c.get(Calendar.DATE);
-        int mes = c.get(Calendar.MONTH);
-        mes++;
+        /*
+            este metodo agrega un txt diario que va a tener las compras de este dia 
+        */
+        Calendar c = new GregorianCalendar();//se utiliza la libreria calendar para tomar la fecha de la computadora
+        int dia = c.get(Calendar.DATE);//obtengo el dia
+        int mes = c.get(Calendar.MONTH);//obtengo mes
+        mes++;//aumento el mes debido a que al obtner el mes se empiezan en 0 
         String fecha = "";
-        String stringDiarios = String.valueOf(dia + "/" + mes);
+        String stringDiarios = String.valueOf(dia + "/" + mes);//crea un string diario
         String ruta = "diario.txt";
         File file = new File(ruta);
 
         System.out.println("Creamos un FIleWriter");
         FileWriter flWriter = null;
         try {
-            //crear el archivo en disco duro, 
+            //crear el archivo txt 
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -208,7 +213,7 @@ public class operacionesGerente implements operaciones {
 
             System.out.println("Creamos un BufferedWriter");
             BufferedWriter brWriter = new BufferedWriter(flWriter);
-            fecha = stringDiarios + "," + cantidadTiquetes;
+            fecha = stringDiarios + "," + cantidadTiquetes;//a fecha se le asigna el stringDiarios con la cantidad de tiquetes 
             System.out.println("dentro de for");
 
             brWriter.write(fecha);
@@ -229,9 +234,13 @@ public class operacionesGerente implements operaciones {
     }
 
     public void leerReporteSemanal(String fecha) {
+        /*
+            este metodo lee el txt semanal para asi poder asignar dos cadenas,una cadena con los valores
+            que tiene el txt y la otra cadena con los datos que se le van a asignar
+        */
         String ruta = "semanal.txt";
         File file = new File(ruta);
-        int totalTiquetesVendidos = sumaTiquetesSemanales();
+        int totalTiquetesVendidos = sumaTiquetesSemanales();//se llama al metodo que retorna la cantidad de tiquetes que hay ene el txt semanal
         int contadorSemanal = 0;
         boolean band = false;
         try {
@@ -248,29 +257,31 @@ public class operacionesGerente implements operaciones {
             //Aqui lo que se hace es obtener una cadena de la linea en la que el numero de asientos decrece
             // Se obtiene una cadena que es la  que se va a modificar en el archivo de texto
             while ((cadena = buffReader.readLine()) != null) {
-                contadorSemanal++;
+                contadorSemanal++;//lleva las cuentas de las lineas,cada linea equivale a un dia diferente
                 if (cadena.split(",")[0].equalsIgnoreCase(fecha.split(",")[0])) {
-                    nuevaCadena = fecha;
+                    nuevaCadena = fecha;//nueva cadena va a tener lo de fecha 
                     cadenaBorrar = cadena;
                     System.out.println(nuevaCadena);
                     System.out.println(cadenaBorrar);
-                    band = true;
+                    band = true;//esta bandera se vuele true si entra en el if
 
                 }
             }
             System.out.println("el totoal de tiquetes antes de pasar a mensual " + totalTiquetesVendidos);
-            if (band == false) {
+            if (band == false) {//si band es false, quiere decir que no encontro considencias dentro del txt
+                                //por lo tanto se procede a escribir un txt semanal 
                 escribirReporteSemanal(fecha);
             }
             fileR.close();
-            generarReporteSemanal(cadenaBorrar, nuevaCadena);
+            generarReporteSemanal(cadenaBorrar, nuevaCadena);//despues de que se lee se genera el reporte con los nuevos datos
             buffReader.close();
 
-            if (contadorSemanal >= 7) {//7 dias 
+            if (contadorSemanal >= 7) {//como una semana tiene 7 dias se asigna un contador que cuenta las lineas del txt
                 System.out.println("se borrara el fichero semanal");
-                leerReporteMensual(totalTiquetesVendidos);
-                BorrarFichero(file);
-                escribirReporteSemanal(fecha);
+                leerReporteMensual(totalTiquetesVendidos);//cuando entra en este if se escribe en el txt mensual
+                                                          
+                BorrarFichero(file);//borra el archivo semanal.txt por que ya la semana termino
+                escribirReporteSemanal(fecha);//se vuelve a crear para no perder el ultimo valor 
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -280,13 +291,14 @@ public class operacionesGerente implements operaciones {
     }
 
     public void escribirReporteSemanal(String datos) {
+        //escribe en el txt semanal 
         String ruta = "semanal.txt";
         File file = new File(ruta);
 
         System.out.println("Creamos un FIleWriter semanal");
         FileWriter flWriter = null;
         try {
-            //crear el archivo en disco duro, 
+             
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -363,11 +375,12 @@ public class operacionesGerente implements operaciones {
     }
 
     public void leerReporteMensual(int totalTiquetes) {
+        //aqui se lee el txt mensual
         String ruta = "mensual.txt";
         File file = new File(ruta);
         Calendar c = new GregorianCalendar();
         int mes = c.get(Calendar.MONTH);
-        mes++;
+        mes++;//se aumenta el mes ya que .MONTH retorna los numeros de meses empezando en cero
         int total = 0;
         boolean band = false;
         try {
@@ -385,18 +398,19 @@ public class operacionesGerente implements operaciones {
             // Se obtiene una cadena que es la  que se va a modificar en el archivo de texto
             while ((cadena = buffReader.readLine()) != null) {
 
-                if (cadena.split(",")[0].equalsIgnoreCase(String.valueOf(mes))) {
+                if (cadena.split(",")[0].equalsIgnoreCase(String.valueOf(mes))) {//si lo que esta en la primer posicion del mes es igual al mes
+                                                                                //significa que es la misma linea por tanto tiene que cambiar los datos
                     total = totalTiquetes + Integer.parseInt(cadena.split(",")[1]);
-                    nuevaCadena = mes + "," + total;
-                    cadenaBorrar = cadena;
+                    nuevaCadena = mes + "," + total;//se deja una cadena con los datos nuevos que va a tener actualizados el total de tiquetes
+                    cadenaBorrar = cadena;//la cadena vieja va a tener lo que tenia el txt originalmente
                     band = true;
                 }
             }
-            if (band == false) {
-                escribirReporteMensual(mes, totalTiquetes);
+            if (band == false) {//si es false significa que no entro en el if
+                escribirReporteMensual(mes, totalTiquetes);//se escribe el txt mensual
             }
             fileR.close();
-            generarReporteMensual(cadenaBorrar, nuevaCadena);
+            generarReporteMensual(cadenaBorrar, nuevaCadena);//genera un txt con la informacion nueva
             buffReader.close();
 
         } catch (IOException e) {
@@ -407,6 +421,7 @@ public class operacionesGerente implements operaciones {
     }
 
     public void escribirReporteMensual(int mes, int totaltiquetes) {
+        //escribe y crea un txt mensual 
         String ruta = "mensual.txt";
         File file = new File(ruta);
 
@@ -490,6 +505,11 @@ public class operacionesGerente implements operaciones {
     }
 
     public int sumaTiquetesSemanales() {
+        /*
+            este metodo va a retornar un entero con el numero total de tiquetes 
+            el cual va a recorrer todo el txt semanal y va a concatenar lo que tiene la ultima posicion de cada
+            linea en una variable el cual se a retornar
+        */
         String ruta = "semanal.txt";
         File file = new File(ruta);
         int total = 0;
@@ -503,7 +523,7 @@ public class operacionesGerente implements operaciones {
             FileReader fileR = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
-                total = total + Integer.parseInt(cadena.split(",")[1]);
+                total = total + Integer.parseInt(cadena.split(",")[1]);//total se le deja lo que tiene mas lo que esta en la ultima posicion de la linea
                 //System.out.println(cadena);
             }
             buffReader.close();
